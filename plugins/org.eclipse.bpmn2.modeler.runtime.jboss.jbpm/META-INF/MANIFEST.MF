@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.eclipse.bpmn2.modeler.runtime.jboss.jbpm;singleton:=true
+Bundle-SymbolicName: org.eclipse.bpmn2.modeler.runtime.automatik;singleton:=true
 Bundle-Version: 1.5.2.qualifier
-Bundle-Activator: org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.Activator
+Bundle-Activator: org.eclipse.bpmn2.modeler.runtime.automatik.Activator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui.ide,
@@ -26,19 +26,19 @@ Require-Bundle: org.eclipse.ui.ide,
  org.eclipse.jdt.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.features,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.model.bpsim,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.model.bpsim.impl,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.model.bpsim.util,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.model.drools,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.model.drools.impl,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.model.drools.util,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.property,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.property.adapters,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.util,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.customeditor,
- org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.wid
+Export-Package: org.eclipse.bpmn2.modeler.runtime.automatik,
+ org.eclipse.bpmn2.modeler.runtime.automatik.customeditor,
+ org.eclipse.bpmn2.modeler.runtime.automatik.features,
+ org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim,
+ org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.impl,
+ org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.util,
+ org.eclipse.bpmn2.modeler.runtime.automatik.model.drools,
+ org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl,
+ org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.util,
+ org.eclipse.bpmn2.modeler.runtime.automatik.property,
+ org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters,
+ org.eclipse.bpmn2.modeler.runtime.automatik.util,
+ org.eclipse.bpmn2.modeler.runtime.automatik.wid
 Import-Package: org.eclipse.bpmn2.modeler.help,
  org.eclipse.bpmn2.modeler.ui,
  org.eclipse.bpmn2.modeler.ui.editor,

@@ -21,9 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-import org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.wid.WIDException;
-import org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.wid.WIDParser;
-import org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.wid.WorkItemDefinition;
+import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WIDException;
+import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WIDParser;
+import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WorkItemDefinition;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;

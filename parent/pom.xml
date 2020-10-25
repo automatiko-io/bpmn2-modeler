@@ -33,7 +33,7 @@
 		<tycho-extras-version>${tycho-version}</tycho-extras-version>
 		<BUILD_ALIAS>RC1</BUILD_ALIAS>
 		<BUILD_NUMBER>1</BUILD_NUMBER>
-		<eclipse.orbit.url>http://download.eclipse.org/tools/orbit/downloads/drops/repository</eclipse.orbit.url>
+		<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/</eclipse.orbit.url>
 	</properties>
 
 	<profiles>
@@ -241,7 +241,7 @@
 				<eclipse-site>http://download.eclipse.org/releases/2020-06</eclipse-site>
 				<platform-version>[4.8,5.2)</platform-version>
 				<platform-version-name>2020-06</platform-version-name>
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20200526004052/repository</eclipse.orbit.url>
+				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/R20200529191137/repository/</eclipse.orbit.url>
 			</properties>
 			<build>
 				<plugins>
@@ -256,7 +256,7 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 		<profile>
 			<id>sign</id>
 			<build>
@@ -274,7 +274,7 @@
 							</execution>
 						</executions>
 					</plugin>
-		
+
 					<plugin>
 						<groupId>org.eclipse.cbi.maven.plugins</groupId>
 						<artifactId>eclipse-jarsigner-plugin</artifactId>
@@ -289,7 +289,7 @@
 							</execution>
 						</executions>
 					</plugin>
-		
+
 					<plugin>
 						<groupId>org.eclipse.tycho.extras</groupId>
 						<artifactId>tycho-pack200b-plugin</artifactId>
@@ -317,7 +317,7 @@
 			<name>Central Repository</name>
 			<url>https://repo.maven.apache.org/maven2</url>
 		</repository>
-	
+
 		<repository>
 			<id>eclipse-platform</id>
 			<layout>p2</layout>
@@ -416,17 +416,17 @@
 			<id>repo.eclipse.org.cbi-releases</id>
 			<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
 		</pluginRepository>
-		
+
 		<pluginRepository>
 			<id>maven-central</id>
 			<url>http://repo1.maven.org/maven2/</url>
 		</pluginRepository>
-		
+
 		<pluginRepository>
 			<id>eclipse-nexus-central</id>
 			<url>http://maven.eclipse.org/nexus/content/groups/central/</url>
 		</pluginRepository>
-		
+
 		<pluginRepository>
 			<id>eclipse-nexus-public</id>
 			<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
@@ -449,7 +449,7 @@
                                    <archiveSite>true</archiveSite>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-source-feature-plugin</artifactId>
@@ -535,9 +535,9 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
-					
+
 					<!-- vvv Remove when Web Tools has a fix for https://bugs.eclipse.org/bugs/show_bug.cgi?id=501445 -->
-					<!-- removed from ralph.soika@imixs.com at 27.05.2020 
+					<!-- removed from ralph.soika@imixs.com at 27.05.2020
 					<dependency-resolution>
 						<extraRequirements>
 							<requirement>

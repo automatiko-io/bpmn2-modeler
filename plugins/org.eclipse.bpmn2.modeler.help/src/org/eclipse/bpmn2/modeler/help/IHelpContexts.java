@@ -17,5 +17,5 @@ public interface IHelpContexts {
 	public static String User_Preferences = "org.eclipse.bpmn2.modeler.help.User_Preferences"; //$NON-NLS-1$
 	public static String TOC = "org.eclipse.bpmn2.modeler.help.TOC"; //$NON-NLS-1$
 	public static String New_File_Wizard = "org.eclipse.bpmn2.modeler.help.New_File_Wizard"; //$NON-NLS-1$
-	public static String JBPM_New_File_Wizard = "org.eclipse.bpmn2.modeler.help.JBPM_New_File_Wizard"; //$NON-NLS-1$
+	public static String Automatik_New_File_Wizard = "org.eclipse.bpmn2.modeler.help.Automatik_New_File_Wizard"; //$NON-NLS-1$
 }

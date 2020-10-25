@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.bpmn2.modeler.runtime.jboss"
-      label="BPMN2 Modeler - jBPM Runtime Extension Feature"
+      id="org.eclipse.bpmn2.modeler.runtime.automatik"
+      label="BPMN2 Modeler - Automatik Runtime Extension Feature"
       version="1.5.2.qualifier"
       provider-name="%providerName">
 
-   <description url="http://jbpm.jboss.org/">
-      Extension plug-in that customizes BPMN2 Modeler behavior for the jBPM Target Runtime.
+   <description url="http://automatik-platofrm.io/">
+      Extension plug-in that customizes BPMN2 Modeler behavior for the Automatik Target Runtime.
    </description>
 
    <copyright>
@@ -23,7 +23,7 @@
    </requires>
 
    <plugin
-         id="org.eclipse.bpmn2.modeler.runtime.jboss.jbpm"
+         id="org.eclipse.bpmn2.modeler.runtime.automatik"
          download-size="0"
          install-size="0"
          version="0.0.0"
