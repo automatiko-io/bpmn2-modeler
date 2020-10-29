@@ -6,16 +6,12 @@ import org.eclipse.bpmn2.BaseElement;
 import org.eclipse.bpmn2.CallableElement;
 import org.eclipse.bpmn2.ItemAwareElement;
 import org.eclipse.bpmn2.RootElement;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -84,14 +80,6 @@ public class DroolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DroolsPackage.GLOBAL_TYPE: {
-				GlobalType globalType = (GlobalType)theEObject;
-				T result = caseGlobalType(globalType);
-				if (result == null) result = caseItemAwareElement(globalType);
-				if (result == null) result = caseBaseElement(globalType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DroolsPackage.IMPORT_TYPE: {
 				ImportType importType = (ImportType)theEObject;
 				T result = caseImportType(importType);
@@ -107,25 +95,6 @@ public class DroolsSwitch<T> extends Switch<T> {
 			case DroolsPackage.META_VALUE_TYPE: {
 				MetaValueType metaValueType = (MetaValueType)theEObject;
 				T result = caseMetaValueType(metaValueType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DroolsPackage.ON_ENTRY_SCRIPT_TYPE: {
-				OnEntryScriptType onEntryScriptType = (OnEntryScriptType)theEObject;
-				T result = caseOnEntryScriptType(onEntryScriptType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DroolsPackage.ON_EXIT_SCRIPT_TYPE: {
-				OnExitScriptType onExitScriptType = (OnExitScriptType)theEObject;
-				T result = caseOnExitScriptType(onExitScriptType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DroolsPackage.BP_SIM_DATA_TYPE: {
-				BPSimDataType bpSimDataType = (BPSimDataType)theEObject;
-				T result = caseBPSimDataType(bpSimDataType);
-				if (result == null) result = caseBpsim_BPSimDataType(bpSimDataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,21 +123,6 @@ public class DroolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDocumentRoot(DocumentRoot object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Global Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Global Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGlobalType(GlobalType object) {
 		return null;
 	}
 
@@ -214,51 +168,6 @@ public class DroolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMetaValueType(MetaValueType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>On Entry Script Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>On Entry Script Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOnEntryScriptType(OnEntryScriptType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>On Exit Script Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>On Exit Script Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOnExitScriptType(OnExitScriptType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BP Sim Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BP Sim Data Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBPSimDataType(BPSimDataType object) {
 		return null;
 	}
 
@@ -321,22 +230,7 @@ public class DroolsSwitch<T> extends Switch<T> {
 	public T caseItemAwareElement(ItemAwareElement object) {
 		return null;
 	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BP Sim Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BP Sim Data Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBpsim_BPSimDataType(org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BPSimDataType object) {
-		return null;
-	}
-
+	
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Root Element</em>'.
 	 * <!-- begin-user-doc -->

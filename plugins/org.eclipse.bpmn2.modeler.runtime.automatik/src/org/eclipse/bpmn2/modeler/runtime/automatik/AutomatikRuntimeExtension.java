@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.eclipse.bpmn2.Activity;
-import org.eclipse.bpmn2.Bpmn2Package;
 import org.eclipse.bpmn2.DataInput;
 import org.eclipse.bpmn2.DataOutput;
 import org.eclipse.bpmn2.Event;
@@ -44,12 +43,12 @@ import org.eclipse.bpmn2.modeler.core.runtime.ModelExtensionDescriptor.Property;
 import org.eclipse.bpmn2.modeler.core.runtime.TargetRuntime;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil.Bpmn2DiagramType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmCustomTaskFeatureContainer;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmActivityDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmCommonEventDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDataAssociationDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection.JbpmMessageDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection.JbpmMessageListComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmExpressionDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmGatewayDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmImportTypeDetailComposite;
@@ -64,9 +63,6 @@ import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmScriptTaskDetail
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSendTaskDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSequenceFlowDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmTaskDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDataItemsPropertySection.GlobalTypeDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection.JbpmMessageDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection.JbpmMessageListComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WIDLoader;
 import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WorkItemDefinition;
 import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WorkItemDefinition.Parameter;
@@ -75,14 +71,8 @@ import org.eclipse.bpmn2.modeler.ui.editor.BPMN2Editor;
 import org.eclipse.bpmn2.modeler.ui.wizards.FileService;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceVisitor;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.impl.EAttributeImpl;
-import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.osgi.util.NLS;
@@ -209,7 +199,6 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 	        PropertiesCompositeFactory.register(DataOutput.class, JbpmDataAssociationDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(Event.class, JbpmCommonEventDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(Gateway.class, JbpmGatewayDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(GlobalType.class, GlobalTypeDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(ImportType.class, JbpmImportTypeDetailComposite.class, targetRuntime);	        
 	        PropertiesCompositeFactory.register(ItemDefinition.class, JbpmItemDefinitionListComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(ManualTask.class, JbpmManualTaskDetailComposite.class, targetRuntime);
@@ -240,14 +229,7 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 		else if (event.eventType == EventType.BUSINESSOBJECT_LOADED ||
 				event.eventType == EventType.BUSINESSOBJECT_INITIALIZED) {
 			EObject object = (EObject) event.target;
-			if (object instanceof GlobalType) {
-				// The BaseElement feature "id" is not saved, but it MUST be kept in sync with the
-				// GlobalType feature "identifier" - this acts like the "name" feature of other
-				// ItemAwareElements that treat "name" like an ID.
-				// @see ProcessVariableNameChangeAdapter for details of how these are kept in sync.
-				((GlobalType) object).setId(((GlobalType) object).getIdentifier());
-			}
-			else if (ProcessVariableNameChangeAdapter.appliesTo(object)) {
+			if (ProcessVariableNameChangeAdapter.appliesTo(object)) {
 				EStructuralFeature nameFeature = object.eClass().getEStructuralFeature("name"); //$NON-NLS-1$
 				String n = (String) object.eGet(nameFeature);
 				if (n==null || n.isEmpty()) {

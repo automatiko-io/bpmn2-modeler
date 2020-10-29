@@ -31,15 +31,6 @@ public interface DroolsFactory extends EFactory {
 	DocumentRoot createDocumentRoot();
 
 	/**
-	 * Returns a new object of class '<em>Global Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Global Type</em>'.
-	 * @generated
-	 */
-	GlobalType createGlobalType();
-
-	/**
 	 * Returns a new object of class '<em>Import Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,33 +56,6 @@ public interface DroolsFactory extends EFactory {
 	 * @generated
 	 */
 	MetaValueType createMetaValueType();
-
-	/**
-	 * Returns a new object of class '<em>On Entry Script Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>On Entry Script Type</em>'.
-	 * @generated
-	 */
-	OnEntryScriptType createOnEntryScriptType();
-
-	/**
-	 * Returns a new object of class '<em>On Exit Script Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>On Exit Script Type</em>'.
-	 * @generated
-	 */
-	OnExitScriptType createOnExitScriptType();
-
-	/**
-	 * Returns a new object of class '<em>BP Sim Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BP Sim Data Type</em>'.
-	 * @generated
-	 */
-	BPSimDataType createBPSimDataType();
 
 	/**
 	 * Returns a new object of class '<em>External Process</em>'.

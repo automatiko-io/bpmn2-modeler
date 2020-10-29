@@ -5,16 +5,12 @@ package org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.util;
 import java.math.BigInteger;
 import java.util.Map;
 
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
@@ -104,28 +100,18 @@ public class DroolsValidator extends EObjectValidator {
 		switch (classifierID) {
 			case DroolsPackage.DOCUMENT_ROOT:
 				return validateDocumentRoot((DocumentRoot)value, diagnostics, context);
-			case DroolsPackage.GLOBAL_TYPE:
-				return validateGlobalType((GlobalType)value, diagnostics, context);
 			case DroolsPackage.IMPORT_TYPE:
 				return validateImportType((ImportType)value, diagnostics, context);
 			case DroolsPackage.META_DATA_TYPE:
 				return validateMetaDataType((MetaDataType)value, diagnostics, context);
 			case DroolsPackage.META_VALUE_TYPE:
 				return validateMetaValueType((MetaValueType)value, diagnostics, context);
-			case DroolsPackage.ON_ENTRY_SCRIPT_TYPE:
-				return validateOnEntryScriptType((OnEntryScriptType)value, diagnostics, context);
-			case DroolsPackage.ON_EXIT_SCRIPT_TYPE:
-				return validateOnExitScriptType((OnExitScriptType)value, diagnostics, context);
-			case DroolsPackage.BP_SIM_DATA_TYPE:
-				return validateBPSimDataType((BPSimDataType)value, diagnostics, context);
 			case DroolsPackage.EXTERNAL_PROCESS:
 				return validateExternalProcess((ExternalProcess)value, diagnostics, context);
 			case DroolsPackage.PACKAGE_NAME_TYPE:
 				return validatePackageNameType((String)value, diagnostics, context);
 			case DroolsPackage.PRIORITY_TYPE:
 				return validatePriorityType((BigInteger)value, diagnostics, context);
-			case DroolsPackage.RULE_FLOW_GROUP_TYPE:
-				return validateRuleFlowGroupType((String)value, diagnostics, context);
 			case DroolsPackage.TASK_NAME_TYPE:
 				return validateTaskNameType((String)value, diagnostics, context);
 			case DroolsPackage.VERSION_TYPE:
@@ -142,15 +128,6 @@ public class DroolsValidator extends EObjectValidator {
 	 */
 	public boolean validateDocumentRoot(DocumentRoot documentRoot, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(documentRoot, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGlobalType(GlobalType globalType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(globalType, diagnostics, context);
 	}
 
 	/**
@@ -180,32 +157,6 @@ public class DroolsValidator extends EObjectValidator {
 		return validate_EveryDefaultConstraint(metaValueType, diagnostics, context);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOnEntryScriptType(OnEntryScriptType onEntryScriptType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(onEntryScriptType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOnExitScriptType(OnExitScriptType onExitScriptType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(onExitScriptType, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBPSimDataType(BPSimDataType bpSimDataType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(bpSimDataType, diagnostics, context);
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,15 +205,6 @@ public class DroolsValidator extends EObjectValidator {
 		if (!result && diagnostics != null)
 			reportMinViolation(DroolsPackage.Literals.PRIORITY_TYPE, priorityType, PRIORITY_TYPE__MIN__VALUE, true, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRuleFlowGroupType(String ruleFlowGroupType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
 	}
 
 	/**

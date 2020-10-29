@@ -4,21 +4,16 @@ package org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl;
 
 import java.math.BigInteger;
 
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsFactory;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
@@ -69,13 +64,9 @@ public class DroolsFactoryImpl extends EFactoryImpl implements DroolsFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DroolsPackage.DOCUMENT_ROOT: return createDocumentRoot();
-			case DroolsPackage.GLOBAL_TYPE: return createGlobalType();
 			case DroolsPackage.IMPORT_TYPE: return createImportType();
 			case DroolsPackage.META_DATA_TYPE: return createMetaDataType();
 			case DroolsPackage.META_VALUE_TYPE: return createMetaValueType();
-			case DroolsPackage.ON_ENTRY_SCRIPT_TYPE: return createOnEntryScriptType();
-			case DroolsPackage.ON_EXIT_SCRIPT_TYPE: return createOnExitScriptType();
-			case DroolsPackage.BP_SIM_DATA_TYPE: return createBPSimDataType();
 			case DroolsPackage.EXTERNAL_PROCESS: return createExternalProcess();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -94,8 +85,6 @@ public class DroolsFactoryImpl extends EFactoryImpl implements DroolsFactory {
 				return createPackageNameTypeFromString(eDataType, initialValue);
 			case DroolsPackage.PRIORITY_TYPE:
 				return createPriorityTypeFromString(eDataType, initialValue);
-			case DroolsPackage.RULE_FLOW_GROUP_TYPE:
-				return createRuleFlowGroupTypeFromString(eDataType, initialValue);
 			case DroolsPackage.TASK_NAME_TYPE:
 				return createTaskNameTypeFromString(eDataType, initialValue);
 			case DroolsPackage.VERSION_TYPE:
@@ -117,8 +106,6 @@ public class DroolsFactoryImpl extends EFactoryImpl implements DroolsFactory {
 				return convertPackageNameTypeToString(eDataType, instanceValue);
 			case DroolsPackage.PRIORITY_TYPE:
 				return convertPriorityTypeToString(eDataType, instanceValue);
-			case DroolsPackage.RULE_FLOW_GROUP_TYPE:
-				return convertRuleFlowGroupTypeToString(eDataType, instanceValue);
 			case DroolsPackage.TASK_NAME_TYPE:
 				return convertTaskNameTypeToString(eDataType, instanceValue);
 			case DroolsPackage.VERSION_TYPE:
@@ -136,16 +123,6 @@ public class DroolsFactoryImpl extends EFactoryImpl implements DroolsFactory {
 	public DocumentRoot createDocumentRoot() {
 		DocumentRootImpl documentRoot = new DocumentRootImpl();
 		return documentRoot;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalType createGlobalType() {
-		GlobalTypeImpl globalType = new GlobalTypeImpl();
-		return globalType;
 	}
 
 	/**
@@ -176,36 +153,6 @@ public class DroolsFactoryImpl extends EFactoryImpl implements DroolsFactory {
 	public MetaValueType createMetaValueType() {
 		MetaValueTypeImpl metaValueType = new MetaValueTypeImpl();
 		return metaValueType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OnEntryScriptType createOnEntryScriptType() {
-		OnEntryScriptTypeImpl onEntryScriptType = new OnEntryScriptTypeImpl();
-		return onEntryScriptType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OnExitScriptType createOnExitScriptType() {
-		OnExitScriptTypeImpl onExitScriptType = new OnExitScriptTypeImpl();
-		return onExitScriptType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BPSimDataType createBPSimDataType() {
-		BPSimDataTypeImpl bpSimDataType = new BPSimDataTypeImpl();
-		return bpSimDataType;
 	}
 
 	/**
@@ -254,23 +201,6 @@ public class DroolsFactoryImpl extends EFactoryImpl implements DroolsFactory {
 		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.INTEGER, instanceValue);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createRuleFlowGroupTypeFromString(EDataType eDataType, String initialValue) {
-		return (String)XMLTypeFactory.eINSTANCE.createFromString(XMLTypePackage.Literals.STRING, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertRuleFlowGroupTypeToString(EDataType eDataType, Object instanceValue) {
-		return XMLTypeFactory.eINSTANCE.convertToString(XMLTypePackage.Literals.STRING, instanceValue);
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -13,13 +13,8 @@ package org.eclipse.bpmn2.modeler.runtime.automatik;
 import org.eclipse.bpmn2.DataInput;
 import org.eclipse.bpmn2.DataObject;
 import org.eclipse.bpmn2.DataOutput;
-import org.eclipse.bpmn2.Error;
-import org.eclipse.bpmn2.Escalation;
-import org.eclipse.bpmn2.Message;
 import org.eclipse.bpmn2.MultiInstanceLoopCharacteristics;
-import org.eclipse.bpmn2.Signal;
 import org.eclipse.bpmn2.modeler.core.validation.SyntaxCheckerUtils;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -69,7 +64,6 @@ public class ProcessVariableNameChangeAdapter implements Adapter {
 //				object instanceof Signal ||
 //				object instanceof Error ||
 //				object instanceof Escalation ||
-				object instanceof GlobalType ||
 					(
 						// DataInput and DataOutput objects are a special case: Only
 						// keep the name and ID in sync if the DataInput is being used

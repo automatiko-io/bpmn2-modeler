@@ -13,47 +13,21 @@ package org.eclipse.bpmn2.modeler.runtime.automatik.util;
 import java.util.Hashtable;
 import java.util.List;
 
-import org.eclipse.bpmn2.BaseElement;
-import org.eclipse.bpmn2.CatchEvent;
 import org.eclipse.bpmn2.Definitions;
-import org.eclipse.bpmn2.ExtensionAttributeValue;
 import org.eclipse.bpmn2.Import;
 import org.eclipse.bpmn2.Interface;
 import org.eclipse.bpmn2.ItemDefinition;
 import org.eclipse.bpmn2.ItemKind;
 import org.eclipse.bpmn2.Process;
 import org.eclipse.bpmn2.Property;
-import org.eclipse.bpmn2.Relationship;
-import org.eclipse.bpmn2.SequenceFlow;
-import org.eclipse.bpmn2.Task;
-import org.eclipse.bpmn2.ThrowEvent;
-import org.eclipse.bpmn2.UserTask;
 import org.eclipse.bpmn2.modeler.core.adapters.ExtendedPropertiesAdapter;
 import org.eclipse.bpmn2.modeler.core.adapters.ExtendedPropertiesProvider;
 import org.eclipse.bpmn2.modeler.core.model.Bpmn2ModelerFactory;
 import org.eclipse.bpmn2.modeler.core.model.ModelDecorator;
 import org.eclipse.bpmn2.modeler.core.utils.ImportUtil;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BPSimDataType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BpsimFactory;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BpsimPackage;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.ControlParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.CostParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.DistributionParameter;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.ElementParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.FloatingParameterType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.NormalDistributionType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.Parameter;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.PoissonDistributionType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.ResourceParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.Scenario;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.ScenarioParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.TimeParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.TimeUnit;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.UniformDistributionType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsFactory;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.ui.adapters.properties.ItemDefinitionPropertiesAdapter;
 import org.eclipse.bpmn2.modeler.ui.property.dialogs.DefaultSchemaImportDialog;
@@ -344,9 +318,6 @@ public class JbpmModelUtil {
 		if (value instanceof String) {
 			stringValue = (String)value;
 		}
-		else if (value instanceof GlobalType) {
-			stringValue = ((GlobalType)value).getType();
-		}
 //		else if (value instanceof DataType) {
 //			stringValue = ((DataType)value).getStringType();
 //		}
@@ -374,9 +345,6 @@ public class JbpmModelUtil {
 		ItemDefinition itemDef = null;
 		if (value instanceof String) {
 			itemDef = findOrCreateItemDefinition( context, (String)value );
-		}
-		else if (value instanceof GlobalType) {
-			itemDef = findOrCreateItemDefinition( context, ((GlobalType)value).getType() );
 		}
 //		else if (value instanceof DataType) {
 //			itemDef = findOrCreateItemDefinition( context, ((DataType)value).getStringType() );
@@ -411,167 +379,6 @@ public class JbpmModelUtil {
 			ModelUtil.setID(itemDef);
 		}
 		return itemDef;
-	}
-	
-	public static BPSimDataType getBPSimData(EObject object) {
-		BPSimDataType processAnalysisData = null;
-		Relationship rel = null;
-		Resource resource = ExtendedPropertiesAdapter.getResource(object);
-		Definitions definitions = (Definitions) ModelUtil.getDefinitions(object);
-		List<Relationship> relationships = definitions.getRelationships();
-		if (relationships.size()==0) {
-			rel = Bpmn2ModelerFactory.createObject(resource, Relationship.class);
-			definitions.getRelationships().add(rel);
-			rel.getSources().add(definitions);
-			rel.getTargets().add(definitions);
-			rel.setType(Messages.JbpmModelUtil_Simulation);
-			ModelUtil.setID(rel);
-		}
-		else {
-			rel = relationships.get(0);
-		}
-		
-		for (ExtensionAttributeValue v : ModelDecorator.getExtensionAttributeValues(rel)) {
-			for (org.eclipse.emf.ecore.util.FeatureMap.Entry entry : v.getValue()) {
-				if (entry.getValue() instanceof BPSimDataType) {
-					processAnalysisData = (BPSimDataType)entry.getValue();
-					break;
-				}
-			}
-		}
-		if (processAnalysisData==null) {
-			processAnalysisData = BpsimFactory.eINSTANCE.createBPSimDataType();
-			ModelDecorator.addExtensionAttributeValue(resource, rel, BpsimPackage.eINSTANCE.getDocumentRoot_BPSimData(), processAnalysisData);
-		}
-		
-		if (processAnalysisData.getScenario().size()==0) {
-			Scenario scenario = BpsimFactory.eINSTANCE.createScenario();
-			ModelUtil.setID(scenario, resource);
-			scenario.setName(Messages.JbpmModelUtil_Scenario_Name);
-			ScenarioParameters scenarioParams = BpsimFactory.eINSTANCE.createScenarioParameters();
-			scenarioParams.setBaseTimeUnit(TimeUnit.MS);
-			scenario.setScenarioParameters(scenarioParams);
-			processAnalysisData.getScenario().add(scenario);
-		}
-		
-		return processAnalysisData;
-
-	}
-	
-	public static ElementParameters getElementParameters(BaseElement be) {
-		ElementParameters elementParams = null;
-		Resource resource = be.eResource();
-		BPSimDataType processAnalysisData = getBPSimData(be);
-		Scenario scenario = processAnalysisData.getScenario().get(0);
-		String id = be.getId();
-		for (ElementParameters ep : scenario.getElementParameters()) {
-			
-			if (ep == null)
-				break;
-			
-			if (id.equals(ep.getElementRef())) {
-				elementParams = ep;
-				break;
-			}
-		}
-		if (elementParams==null) {
-			elementParams = BpsimFactory.eINSTANCE.createElementParameters();
-			elementParams.setElementRef(id);
-			ModelUtil.setID(elementParams, resource);
-			
-			if (be instanceof Task) {
-				TimeParameters timeParams = createTimeParameters(DistributionType.Uniform, 0.0, 1.0, TimeUnit.S);
-				elementParams.setTimeParameters(timeParams);
-				
-				CostParameters costParams = BpsimFactory.eINSTANCE.createCostParameters();
-				costParams.setUnitCost( createParameter(0) );
-				elementParams.setCostParameters(costParams);
-			}
-			
-			if (be instanceof UserTask) {
-				ResourceParameters resourceParams = BpsimFactory.eINSTANCE.createResourceParameters();
-				resourceParams.setQuantity( createParameter(0.0));
-				resourceParams.setAvailability( createParameter(0.0) );
-				elementParams.setResourceParameters(resourceParams);
-			}
-			else if (be instanceof CatchEvent){
-				TimeParameters timeParams = createTimeParameters(1.0, TimeUnit.S);
-				elementParams.setTimeParameters(timeParams);
-			}
-			else if (be instanceof ThrowEvent) {
-				TimeParameters timeParams = createTimeParameters(DistributionType.Uniform, 0.0, 1.0, TimeUnit.S); 
-				elementParams.setTimeParameters(timeParams);
-			}
-			else if (be instanceof SequenceFlow) {
-				ControlParameters controlParams = BpsimFactory.eINSTANCE.createControlParameters();
-				controlParams.setProbability( createParameter(100.0) );
-				elementParams.setControlParameters(controlParams);
-			}
-			scenario.getElementParameters().add(elementParams);
-		}
-		
-		return elementParams;
-	}
-	
-	public static Parameter createParameter(double f) {
-		Parameter param = BpsimFactory.eINSTANCE.createParameter();
-		FloatingParameterType value = BpsimFactory.eINSTANCE.createFloatingParameterType();
-		value.setValue(f);
-		param.getParameterValue().add(value);
-		return param;
-	}
-	
-	public static Parameter createParameter(long i) {
-		Parameter param = BpsimFactory.eINSTANCE.createParameter();
-		FloatingParameterType value = BpsimFactory.eINSTANCE.createFloatingParameterType();
-		value.setValue(Double.valueOf(i));
-		param.getParameterValue().add(value);
-		return param;
-	}
-	
-	public enum DistributionType {
-		Normal, Uniform, Poisson
-	};
-	
-	public static Parameter createParameter(DistributionType distType, double v1, double v2) {
-		Parameter param = BpsimFactory.eINSTANCE.createParameter();
-		DistributionParameter value = null;
-		switch (distType) {
-		case Uniform:
-			value = BpsimFactory.eINSTANCE.createUniformDistributionType();
-			((UniformDistributionType)value).setMin(v1);
-			((UniformDistributionType)value).setMax(v2);
-			break;
-		case Normal:
-			value = BpsimFactory.eINSTANCE.createNormalDistributionType();
-			((NormalDistributionType)value).setMean(v1);
-			((NormalDistributionType)value).setStandardDeviation(v2);
-			break;
-		case Poisson:
-			value = BpsimFactory.eINSTANCE.createPoissonDistributionType();
-			((PoissonDistributionType)value).setMean(v1);
-			break;
-		}
-		param.getParameterValue().add(value);
-		return param;
-	}
-
-	public static TimeParameters createTimeParameters(double t, TimeUnit tu) {
-		TimeParameters timeParams = BpsimFactory.eINSTANCE.createTimeParameters();
-		Parameter param = BpsimFactory.eINSTANCE.createParameter();
-		FloatingParameterType value = BpsimFactory.eINSTANCE.createFloatingParameterType();
-		value.setValue(t);
-		param.getParameterValue().add(value);
-		timeParams.setWaitTime(param);
-//		timeParams.setTimeUnit(tu);
-		return timeParams;
-	}
-
-	public static TimeParameters createTimeParameters(DistributionType dt, double v1, double v2, TimeUnit tu) {
-		TimeParameters timeParams = BpsimFactory.eINSTANCE.createTimeParameters();
-		timeParams.setProcessingTime( createParameter(dt, v1, v2) ); 
-//		timeParams.setTimeUnit(tu);
-		return timeParams;
 	}
 	
 	public static String getVariableReference(String text) {

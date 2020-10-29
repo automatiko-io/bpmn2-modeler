@@ -223,22 +223,6 @@
 		</propertyTab>
 		
 		<propertyTab
-			id="bpmn2.automatik.simulation.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.SimulationPropertySection"
-			type="org.eclipse.bpmn2.BaseElement"
-			label="%propertyTab.label.Simulation">
-		</propertyTab>
-		
-		<propertyTab
-			id="bpmn2.automatik.globaltype.tab"
-			replaceTab="org.eclipse.bpmn2.modeler.itemawareelement.tab"
-			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="default"
-			features="identifier type"
-			type="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType">
-		</propertyTab>
-		
-		<propertyTab
 			id="bpmn2.automatik.group.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.group.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
@@ -249,20 +233,6 @@
 		</propertyTab>
 
 <!-- Property Extension Adapters -->
-
-		<propertyExtension
-			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.OnEntryScript"
-			runtimeId="bpmn2.automatik"
-			type="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmOnEntryScriptPropertiesAdapter">
-		</propertyExtension>
-
-		<propertyExtension
-			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.OnExitScript"
-			runtimeId="bpmn2.automatik"
-			type="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmOnExitScriptPropertiesAdapter">
-		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.Property"
@@ -297,13 +267,6 @@
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.DataOutput"
 			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmDataOutputPropertiesAdapter">
-		</propertyExtension>
-
-		<propertyExtension
-			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.GlobalType"
-			runtimeId="bpmn2.automatik"
-			type="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmGlobalTypePropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
@@ -1048,7 +1011,6 @@
 			<enable object="Expression" feature="extensionValues"/>
 			<enable object="FormalExpression" feature="body"/>
 			<enable object="FormalExpression" feature="language"/>
-			<enable object="GlobalType"/>
 			<enable object="Group" feature="documentation"/>
 			<enable object="Group" feature="extensionDefinitions"/>
 			<enable object="Group" feature="extensionValues"/>
@@ -1109,8 +1071,6 @@
 			<enable object="MultiInstanceLoopCharacteristics" feature="loopDataOutputRef"/>
 			<enable object="MultiInstanceLoopCharacteristics" feature="completionCondition"/>
 			<enable object="MultiInstanceLoopCharacteristics" feature="loopCardinality"/>
-			<enable object="OnEntryScriptType"/>
-			<enable object="OnExitScriptType"/>
 			<enable object="Operation" feature="documentation"/>
 			<enable object="Operation" feature="extensionDefinitions"/>
 			<enable object="Operation" feature="extensionValues"/>
@@ -1387,18 +1347,6 @@
                   statusCode="1">
                <message>{0}</message>
                <target class="Escalation"/>
-            </constraint>
-            <constraint
-                  lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
-                  severity="ERROR"
-                  mode="Batch"
-                  name="Global Type"
-                  id="org.eclipse.bpmn2.modeler.runtime.automatik.validation.GlobalType"
-                  statusCode="1">
-               <message>{0}</message>
-               <!-- Note use of namespace URI to qualify GlobalType -->
-               <target class="GlobalType:http://www.jboss.org/drools"/>
             </constraint>
             <constraint
                   lang="Java"

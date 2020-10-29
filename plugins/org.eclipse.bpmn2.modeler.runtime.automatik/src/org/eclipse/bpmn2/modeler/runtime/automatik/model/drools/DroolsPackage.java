@@ -3,7 +3,6 @@
 package org.eclipse.bpmn2.modeler.runtime.automatik.model.drools;
 
 import org.eclipse.bpmn2.Bpmn2Package;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BpsimPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -1311,22 +1310,13 @@ public interface DroolsPackage extends EPackage {
 	int DOCUMENT_ROOT__USER_TASK = Bpmn2Package.DOCUMENT_ROOT__USER_TASK;
 
 	/**
-	 * The feature id for the '<em><b>Global</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__GLOBAL = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Import Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__IMPORT_TYPE = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 1;
+	int DOCUMENT_ROOT__IMPORT_TYPE = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Meta Data</b></em>' containment reference.
@@ -1335,7 +1325,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__META_DATA = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 2;
+	int DOCUMENT_ROOT__META_DATA = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Meta Value</b></em>' containment reference.
@@ -1344,34 +1334,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__META_VALUE = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>On Entry Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__ON_ENTRY_SCRIPT = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>On Exit Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__ON_EXIT_SCRIPT = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Bpsim Data</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DOCUMENT_ROOT__BPSIM_DATA = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 6;
+	int DOCUMENT_ROOT__META_VALUE = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Package Name</b></em>' attribute.
@@ -1380,7 +1343,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PACKAGE_NAME = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 7;
+	int DOCUMENT_ROOT__PACKAGE_NAME = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -1389,7 +1352,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__PRIORITY = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 8;
+	int DOCUMENT_ROOT__PRIORITY = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Rule Flow Group</b></em>' attribute.
@@ -1398,7 +1361,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__RULE_FLOW_GROUP = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 9;
+	int DOCUMENT_ROOT__RULE_FLOW_GROUP = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Task Name</b></em>' attribute.
@@ -1407,7 +1370,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__TASK_NAME = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 10;
+	int DOCUMENT_ROOT__TASK_NAME = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -1416,7 +1379,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT__VERSION = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 11;
+	int DOCUMENT_ROOT__VERSION = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Document Root</em>' class.
@@ -1425,107 +1388,7 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DOCUMENT_ROOT_FEATURE_COUNT = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 12;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.GlobalTypeImpl <em>Global Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.GlobalTypeImpl
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getGlobalType()
-	 * @generated
-	 */
-	int GLOBAL_TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Extension Values</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__EXTENSION_VALUES = Bpmn2Package.ITEM_AWARE_ELEMENT__EXTENSION_VALUES;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__DOCUMENTATION = Bpmn2Package.ITEM_AWARE_ELEMENT__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Extension Definitions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__EXTENSION_DEFINITIONS = Bpmn2Package.ITEM_AWARE_ELEMENT__EXTENSION_DEFINITIONS;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__ID = Bpmn2Package.ITEM_AWARE_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Any Attribute</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__ANY_ATTRIBUTE = Bpmn2Package.ITEM_AWARE_ELEMENT__ANY_ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>Data State</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__DATA_STATE = Bpmn2Package.ITEM_AWARE_ELEMENT__DATA_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Item Subject Ref</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__ITEM_SUBJECT_REF = Bpmn2Package.ITEM_AWARE_ELEMENT__ITEM_SUBJECT_REF;
-
-	/**
-	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__IDENTIFIER = Bpmn2Package.ITEM_AWARE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE__TYPE = Bpmn2Package.ITEM_AWARE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Global Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GLOBAL_TYPE_FEATURE_COUNT = Bpmn2Package.ITEM_AWARE_ELEMENT_FEATURE_COUNT + 2;
+	int DOCUMENT_ROOT_FEATURE_COUNT = Bpmn2Package.DOCUMENT_ROOT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.ImportTypeImpl <em>Import Type</em>}' class.
@@ -1535,7 +1398,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getImportType()
 	 * @generated
 	 */
-	int IMPORT_TYPE = 2;
+	int IMPORT_TYPE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1563,7 +1426,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getMetaDataType()
 	 * @generated
 	 */
-	int META_DATA_TYPE = 3;
+	int META_DATA_TYPE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1600,7 +1463,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getMetaValueType()
 	 * @generated
 	 */
-	int META_VALUE_TYPE = 4;
+	int META_VALUE_TYPE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
@@ -1628,118 +1491,7 @@ public interface DroolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int META_VALUE_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnEntryScriptTypeImpl <em>On Entry Script Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnEntryScriptTypeImpl
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getOnEntryScriptType()
-	 * @generated
-	 */
-	int ON_ENTRY_SCRIPT_TYPE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Script</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ON_ENTRY_SCRIPT_TYPE__SCRIPT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Script Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ON_ENTRY_SCRIPT_TYPE__SCRIPT_FORMAT = 1;
-
-	/**
-	 * The number of structural features of the '<em>On Entry Script Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ON_ENTRY_SCRIPT_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnExitScriptTypeImpl <em>On Exit Script Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnExitScriptTypeImpl
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getOnExitScriptType()
-	 * @generated
-	 */
-	int ON_EXIT_SCRIPT_TYPE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Script</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ON_EXIT_SCRIPT_TYPE__SCRIPT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Script Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ON_EXIT_SCRIPT_TYPE__SCRIPT_FORMAT = 1;
-
-	/**
-	 * The number of structural features of the '<em>On Exit Script Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ON_EXIT_SCRIPT_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.BPSimDataTypeImpl <em>BP Sim Data Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.BPSimDataTypeImpl
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getBPSimDataType()
-	 * @generated
-	 */
-	int BP_SIM_DATA_TYPE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Group</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BP_SIM_DATA_TYPE__GROUP = BpsimPackage.BP_SIM_DATA_TYPE__GROUP;
-
-	/**
-	 * The feature id for the '<em><b>Scenario</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BP_SIM_DATA_TYPE__SCENARIO = BpsimPackage.BP_SIM_DATA_TYPE__SCENARIO;
-
-	/**
-	 * The number of structural features of the '<em>BP Sim Data Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BP_SIM_DATA_TYPE_FEATURE_COUNT = BpsimPackage.BP_SIM_DATA_TYPE_FEATURE_COUNT + 0;
-
+	
 	/**
 	 * The meta object id for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.ExternalProcessImpl <em>External Process</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1748,7 +1500,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getExternalProcess()
 	 * @generated
 	 */
-	int EXTERNAL_PROCESS = 8;
+	int EXTERNAL_PROCESS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Extension Values</b></em>' containment reference list.
@@ -1848,7 +1600,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getPackageNameType()
 	 * @generated
 	 */
-	int PACKAGE_NAME_TYPE = 9;
+	int PACKAGE_NAME_TYPE = 5;
 
 	/**
 	 * The meta object id for the '<em>Priority Type</em>' data type.
@@ -1858,17 +1610,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getPriorityType()
 	 * @generated
 	 */
-	int PRIORITY_TYPE = 10;
-
-	/**
-	 * The meta object id for the '<em>Rule Flow Group Type</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getRuleFlowGroupType()
-	 * @generated
-	 */
-	int RULE_FLOW_GROUP_TYPE = 11;
+	int PRIORITY_TYPE = 6;
 
 	/**
 	 * The meta object id for the '<em>Task Name Type</em>' data type.
@@ -1878,7 +1620,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getTaskNameType()
 	 * @generated
 	 */
-	int TASK_NAME_TYPE = 12;
+	int TASK_NAME_TYPE = 7;
 
 	/**
 	 * The meta object id for the '<em>Version Type</em>' data type.
@@ -1888,7 +1630,7 @@ public interface DroolsPackage extends EPackage {
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getVersionType()
 	 * @generated
 	 */
-	int VERSION_TYPE = 13;
+	int VERSION_TYPE = 8;
 
 
 	/**
@@ -1900,17 +1642,6 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDocumentRoot();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getGlobal <em>Global</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Global</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getGlobal()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_Global();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getImportType <em>Import Type</em>}'.
@@ -1946,39 +1677,6 @@ public interface DroolsPackage extends EPackage {
 	EReference getDocumentRoot_MetaValue();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getOnEntryScript <em>On Entry Script</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>On Entry Script</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getOnEntryScript()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_OnEntryScript();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getOnExitScript <em>On Exit Script</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>On Exit Script</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getOnExitScript()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_OnExitScript();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getBpsimData <em>Bpsim Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Bpsim Data</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getBpsimData()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EReference getDocumentRoot_BpsimData();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getPackageName <em>Package Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2001,17 +1699,6 @@ public interface DroolsPackage extends EPackage {
 	EAttribute getDocumentRoot_Priority();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getRuleFlowGroup <em>Rule Flow Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rule Flow Group</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getRuleFlowGroup()
-	 * @see #getDocumentRoot()
-	 * @generated
-	 */
-	EAttribute getDocumentRoot_RuleFlowGroup();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot#getTaskName <em>Task Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2032,38 +1719,6 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDocumentRoot_Version();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType <em>Global Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Global Type</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType
-	 * @generated
-	 */
-	EClass getGlobalType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType#getIdentifier <em>Identifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Identifier</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType#getIdentifier()
-	 * @see #getGlobalType()
-	 * @generated
-	 */
-	EAttribute getGlobalType_Identifier();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType#getType()
-	 * @see #getGlobalType()
-	 * @generated
-	 */
-	EAttribute getGlobalType_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType <em>Import Type</em>}'.
@@ -2150,79 +1805,6 @@ public interface DroolsPackage extends EPackage {
 	 */
 	EAttribute getMetaValueType_Value();
 
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType <em>On Entry Script Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>On Entry Script Type</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType
-	 * @generated
-	 */
-	EClass getOnEntryScriptType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType#getScript <em>Script</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Script</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType#getScript()
-	 * @see #getOnEntryScriptType()
-	 * @generated
-	 */
-	EAttribute getOnEntryScriptType_Script();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType#getScriptFormat <em>Script Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Script Format</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType#getScriptFormat()
-	 * @see #getOnEntryScriptType()
-	 * @generated
-	 */
-	EAttribute getOnEntryScriptType_ScriptFormat();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType <em>On Exit Script Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>On Exit Script Type</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType
-	 * @generated
-	 */
-	EClass getOnExitScriptType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType#getScript <em>Script</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Script</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType#getScript()
-	 * @see #getOnExitScriptType()
-	 * @generated
-	 */
-	EAttribute getOnExitScriptType_Script();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType#getScriptFormat <em>Script Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Script Format</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType#getScriptFormat()
-	 * @see #getOnExitScriptType()
-	 * @generated
-	 */
-	EAttribute getOnExitScriptType_ScriptFormat();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType <em>BP Sim Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>BP Sim Data Type</em>'.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType
-	 * @generated
-	 */
-	EClass getBPSimDataType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess <em>External Process</em>}'.
@@ -2257,18 +1839,6 @@ public interface DroolsPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getPriorityType();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.String <em>Rule Flow Group Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Rule Flow Group Type</em>'.
-	 * @see java.lang.String
-	 * @model instanceClass="java.lang.String"
-	 *        extendedMetaData="name='ruleFlowGroup_._type' baseType='http://www.eclipse.org/emf/2003/XMLType#string'"
-	 * @generated
-	 */
-	EDataType getRuleFlowGroupType();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>Task Name Type</em>}'.
@@ -2327,14 +1897,6 @@ public interface DroolsPackage extends EPackage {
 		EClass DOCUMENT_ROOT = eINSTANCE.getDocumentRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Global</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__GLOBAL = eINSTANCE.getDocumentRoot_Global();
-
-		/**
 		 * The meta object literal for the '<em><b>Import Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2358,29 +1920,6 @@ public interface DroolsPackage extends EPackage {
 		 */
 		EReference DOCUMENT_ROOT__META_VALUE = eINSTANCE.getDocumentRoot_MetaValue();
 
-		/**
-		 * The meta object literal for the '<em><b>On Entry Script</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__ON_ENTRY_SCRIPT = eINSTANCE.getDocumentRoot_OnEntryScript();
-
-		/**
-		 * The meta object literal for the '<em><b>On Exit Script</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__ON_EXIT_SCRIPT = eINSTANCE.getDocumentRoot_OnExitScript();
-
-		/**
-		 * The meta object literal for the '<em><b>Bpsim Data</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DOCUMENT_ROOT__BPSIM_DATA = eINSTANCE.getDocumentRoot_BpsimData();
 
 		/**
 		 * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
@@ -2399,14 +1938,6 @@ public interface DroolsPackage extends EPackage {
 		EAttribute DOCUMENT_ROOT__PRIORITY = eINSTANCE.getDocumentRoot_Priority();
 
 		/**
-		 * The meta object literal for the '<em><b>Rule Flow Group</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DOCUMENT_ROOT__RULE_FLOW_GROUP = eINSTANCE.getDocumentRoot_RuleFlowGroup();
-
-		/**
 		 * The meta object literal for the '<em><b>Task Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2421,32 +1952,6 @@ public interface DroolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOCUMENT_ROOT__VERSION = eINSTANCE.getDocumentRoot_Version();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.GlobalTypeImpl <em>Global Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.GlobalTypeImpl
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getGlobalType()
-		 * @generated
-		 */
-		EClass GLOBAL_TYPE = eINSTANCE.getGlobalType();
-
-		/**
-		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GLOBAL_TYPE__IDENTIFIER = eINSTANCE.getGlobalType_Identifier();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GLOBAL_TYPE__TYPE = eINSTANCE.getGlobalType_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.ImportTypeImpl <em>Import Type</em>}' class.
@@ -2519,68 +2024,6 @@ public interface DroolsPackage extends EPackage {
 		EAttribute META_VALUE_TYPE__VALUE = eINSTANCE.getMetaValueType_Value();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnEntryScriptTypeImpl <em>On Entry Script Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnEntryScriptTypeImpl
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getOnEntryScriptType()
-		 * @generated
-		 */
-		EClass ON_ENTRY_SCRIPT_TYPE = eINSTANCE.getOnEntryScriptType();
-
-		/**
-		 * The meta object literal for the '<em><b>Script</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ON_ENTRY_SCRIPT_TYPE__SCRIPT = eINSTANCE.getOnEntryScriptType_Script();
-
-		/**
-		 * The meta object literal for the '<em><b>Script Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ON_ENTRY_SCRIPT_TYPE__SCRIPT_FORMAT = eINSTANCE.getOnEntryScriptType_ScriptFormat();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnExitScriptTypeImpl <em>On Exit Script Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.OnExitScriptTypeImpl
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getOnExitScriptType()
-		 * @generated
-		 */
-		EClass ON_EXIT_SCRIPT_TYPE = eINSTANCE.getOnExitScriptType();
-
-		/**
-		 * The meta object literal for the '<em><b>Script</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ON_EXIT_SCRIPT_TYPE__SCRIPT = eINSTANCE.getOnExitScriptType_Script();
-
-		/**
-		 * The meta object literal for the '<em><b>Script Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ON_EXIT_SCRIPT_TYPE__SCRIPT_FORMAT = eINSTANCE.getOnExitScriptType_ScriptFormat();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.BPSimDataTypeImpl <em>BP Sim Data Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.BPSimDataTypeImpl
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getBPSimDataType()
-		 * @generated
-		 */
-		EClass BP_SIM_DATA_TYPE = eINSTANCE.getBPSimDataType();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.ExternalProcessImpl <em>External Process</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2609,16 +2052,6 @@ public interface DroolsPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType PRIORITY_TYPE = eINSTANCE.getPriorityType();
-
-		/**
-		 * The meta object literal for the '<em>Rule Flow Group Type</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.String
-		 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DroolsPackageImpl#getRuleFlowGroupType()
-		 * @generated
-		 */
-		EDataType RULE_FLOW_GROUP_TYPE = eINSTANCE.getRuleFlowGroupType();
 
 		/**
 		 * The meta object literal for the '<em>Task Name Type</em>' data type.

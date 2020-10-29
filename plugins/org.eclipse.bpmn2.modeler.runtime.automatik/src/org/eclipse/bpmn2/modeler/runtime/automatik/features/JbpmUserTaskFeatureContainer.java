@@ -10,11 +10,7 @@
  ******************************************************************************/
 package org.eclipse.bpmn2.modeler.runtime.automatik.features;
 
-import org.eclipse.bpmn2.BaseElement;
 import org.eclipse.bpmn2.UserTask;
-import org.eclipse.bpmn2.modeler.core.utils.BusinessObjectUtil;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.ElementParameters;
-import org.eclipse.bpmn2.modeler.runtime.automatik.util.JbpmModelUtil;
 import org.eclipse.bpmn2.modeler.ui.features.activity.task.UserTaskFeatureContainer;
 import org.eclipse.graphiti.features.IAddFeature;
 import org.eclipse.graphiti.features.ICreateFeature;
@@ -44,9 +40,6 @@ public class JbpmUserTaskFeatureContainer extends UserTaskFeatureContainer {
 			@Override
 			public PictogramElement add(IAddContext context) {
 				PictogramElement pe = super.add(context);
-				BaseElement be = BusinessObjectUtil.getFirstBaseElement(pe);
-				ElementParameters ep = JbpmModelUtil.getElementParameters(be);
-				getFeatureProvider().link(pe, ep);
 				return pe;
 			}
 			

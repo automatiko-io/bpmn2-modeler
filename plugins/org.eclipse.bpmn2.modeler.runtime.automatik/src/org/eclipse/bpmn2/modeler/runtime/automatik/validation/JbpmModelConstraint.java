@@ -29,14 +29,12 @@ import org.eclipse.bpmn2.modeler.core.adapters.ExtendedPropertiesAdapter;
 import org.eclipse.bpmn2.modeler.core.runtime.ModelExtensionDescriptor;
 import org.eclipse.bpmn2.modeler.core.runtime.ModelExtensionDescriptor.Property;
 import org.eclipse.bpmn2.modeler.core.validation.validators.ItemAwareElementValidator;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.BusinessRuleTaskValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.CallActivityValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.DataAssociationValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.DefinitionsValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.EscalationValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.GatewayValidator;
-import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.GlobalTypeValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.InterfaceValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.ProcessValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.validators.SignalValidator;
@@ -72,9 +70,6 @@ public class JbpmModelConstraint extends AbstractModelConstraint {
 		}	
 		if (object instanceof Escalation) {
 			return new EscalationValidator(ctx).validate((Escalation)object);
-		}	
-		if (object instanceof GlobalType) {
-			return new GlobalTypeValidator(ctx).validate((GlobalType)object);
 		}	
 		if (object instanceof DataAssociation) {
 			return new DataAssociationValidator(ctx).validate((DataAssociation)object);

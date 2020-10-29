@@ -22,7 +22,6 @@ import org.eclipse.bpmn2.modeler.core.validation.validators.AbstractBpmn2Element
 import org.eclipse.bpmn2.modeler.core.validation.validators.BaseElementValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.ProcessVariableNameChangeAdapter;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.util.JbpmModelUtil;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.Messages;
 import org.eclipse.core.runtime.IStatus;
@@ -61,11 +60,7 @@ public class ProcessVariableNameValidator extends AbstractBpmn2ElementValidator<
 	public IStatus validate(BaseElement object) {
 		String id = null;
 		String featureName = null;
-		if (object instanceof GlobalType) {
-			id = ((GlobalType) object).getIdentifier();
-			featureName = "identifier"; //$NON-NLS-1$
-		}
-		else if (object instanceof BaseElement) {
+		if (object instanceof BaseElement) {
 			id = ((BaseElement) object).getId();
 			featureName = "id"; //$NON-NLS-1$
 		}
@@ -95,11 +90,7 @@ public class ProcessVariableNameValidator extends AbstractBpmn2ElementValidator<
 			while (iter.hasNext()) {
 				EObject o2 = iter.next();
 				if (o2 instanceof BaseElement && object!=o2) {
-					String id2;
-					if (o2 instanceof GlobalType)
-						id2 = ((GlobalType) o2).getIdentifier();
-					else
-						id2 = ((BaseElement) o2).getId();
+					String id2 = ((BaseElement) o2).getId();
 					if (id != null && id2 != null) {
 						if (id.equals(id2)) {
 							addStatus(object, featureName, Status.ERROR,

@@ -44,13 +44,11 @@ import org.eclipse.bpmn2.Property;
 import org.eclipse.bpmn2.RootElement;
 import org.eclipse.bpmn2.ThrowEvent;
 import org.eclipse.bpmn2.modeler.core.model.Bpmn2ModelerResourceImpl;
-import org.eclipse.bpmn2.modeler.core.model.ModelDecorator;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil;
 import org.eclipse.bpmn2.modeler.runtime.automatik.AutomatikRuntimeExtension;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsFactory;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.preferences.JbpmPreferencePage;
@@ -140,9 +138,6 @@ public class DroolsResourceImpl extends Bpmn2ModelerResourceImpl {
 				if (f==Bpmn2Package.eINSTANCE.getDefinitions_Relationships()) {
 					if (!JbpmPreferencePage.isEnableSimulation())
 						return false;
-				}
-				if (o instanceof GlobalType && f==Bpmn2Package.eINSTANCE.getBaseElement_Id()) {
-					return false;
 				}
 				if (o instanceof MetaValueType && f==DroolsPackage.eINSTANCE.getMetaValueType_Value()) {
 					// the MetaValue.value will already be saved as CData, so no need to duplicate
@@ -294,8 +289,7 @@ public class DroolsResourceImpl extends Bpmn2ModelerResourceImpl {
 		        			needTargetNamespace = false;
 		        		else if (XSI_SCHEMA_LOCATION.equals(name)) {
 		        			value = "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" +
-		        					" http://www.jboss.org/drools drools.xsd"+
-		        					" http://www.bpsim.org/schemas/1.0 bpsim.xsd";
+		        					" http://www.jboss.org/drools drools.xsd";
 		        		}
 		        			
 		        		super.addAttribute(name, value);
@@ -641,10 +635,6 @@ public class DroolsResourceImpl extends Bpmn2ModelerResourceImpl {
 							return p;
 					}
 					
-					for (GlobalType g : ModelDecorator.getAllExtensionAttributeValues(process, GlobalType.class)) {
-						if (ids.equals(g.getIdentifier()))
-							return g;
-					}
 				}
 				else if (container instanceof Definitions) {
 					Definitions definitions = (Definitions)container;

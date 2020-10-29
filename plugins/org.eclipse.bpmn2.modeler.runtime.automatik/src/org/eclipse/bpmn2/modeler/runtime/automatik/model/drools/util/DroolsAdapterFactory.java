@@ -6,16 +6,12 @@ import org.eclipse.bpmn2.BaseElement;
 import org.eclipse.bpmn2.CallableElement;
 import org.eclipse.bpmn2.ItemAwareElement;
 import org.eclipse.bpmn2.RootElement;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -82,10 +78,6 @@ public class DroolsAdapterFactory extends AdapterFactoryImpl {
 				return createDocumentRootAdapter();
 			}
 			@Override
-			public Adapter caseGlobalType(GlobalType object) {
-				return createGlobalTypeAdapter();
-			}
-			@Override
 			public Adapter caseImportType(ImportType object) {
 				return createImportTypeAdapter();
 			}
@@ -96,18 +88,6 @@ public class DroolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMetaValueType(MetaValueType object) {
 				return createMetaValueTypeAdapter();
-			}
-			@Override
-			public Adapter caseOnEntryScriptType(OnEntryScriptType object) {
-				return createOnEntryScriptTypeAdapter();
-			}
-			@Override
-			public Adapter caseOnExitScriptType(OnExitScriptType object) {
-				return createOnExitScriptTypeAdapter();
-			}
-			@Override
-			public Adapter caseBPSimDataType(BPSimDataType object) {
-				return createBPSimDataTypeAdapter();
 			}
 			@Override
 			public Adapter caseExternalProcess(ExternalProcess object) {
@@ -124,10 +104,6 @@ public class DroolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseItemAwareElement(ItemAwareElement object) {
 				return createItemAwareElementAdapter();
-			}
-			@Override
-			public Adapter caseBpsim_BPSimDataType(org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BPSimDataType object) {
-				return createBpsim_BPSimDataTypeAdapter();
 			}
 			@Override
 			public Adapter caseRootElement(RootElement object) {

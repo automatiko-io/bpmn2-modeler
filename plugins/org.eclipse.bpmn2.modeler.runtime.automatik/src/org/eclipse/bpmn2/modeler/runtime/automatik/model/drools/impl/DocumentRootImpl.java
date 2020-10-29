@@ -4,15 +4,11 @@ package org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl;
 
 import java.math.BigInteger;
 
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.bpsim.BPSimDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DocumentRoot;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -27,16 +23,11 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getGlobal <em>Global</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getImportType <em>Import Type</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getMetaData <em>Meta Data</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getMetaValue <em>Meta Value</em>}</li>
- *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getOnEntryScript <em>On Entry Script</em>}</li>
- *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getOnExitScript <em>On Exit Script</em>}</li>
- *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getBpsimData <em>Bpsim Data</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getPackageName <em>Package Name</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getRuleFlowGroup <em>Rule Flow Group</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getTaskName <em>Task Name</em>}</li>
  *   <li>{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.impl.DocumentRootImpl#getVersion <em>Version</em>}</li>
  * </ul>
@@ -84,26 +75,6 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	 * @ordered
 	 */
 	protected BigInteger priority = PRIORITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRuleFlowGroup() <em>Rule Flow Group</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRuleFlowGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String RULE_FLOW_GROUP_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRuleFlowGroup() <em>Rule Flow Group</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRuleFlowGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected String ruleFlowGroup = RULE_FLOW_GROUP_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTaskName() <em>Task Name</em>}' attribute.
@@ -162,33 +133,6 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	@Override
 	protected EClass eStaticClass() {
 		return DroolsPackage.Literals.DOCUMENT_ROOT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalType getGlobal() {
-		return (GlobalType)getMixed().get(DroolsPackage.Literals.DOCUMENT_ROOT__GLOBAL, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGlobal(GlobalType newGlobal, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DroolsPackage.Literals.DOCUMENT_ROOT__GLOBAL, newGlobal, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGlobal(GlobalType newGlobal) {
-		((FeatureMap.Internal)getMixed()).set(DroolsPackage.Literals.DOCUMENT_ROOT__GLOBAL, newGlobal);
 	}
 
 	/**
@@ -271,88 +215,7 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	public void setMetaValue(MetaValueType newMetaValue) {
 		((FeatureMap.Internal)getMixed()).set(DroolsPackage.Literals.DOCUMENT_ROOT__META_VALUE, newMetaValue);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OnEntryScriptType getOnEntryScript() {
-		return (OnEntryScriptType)getMixed().get(DroolsPackage.Literals.DOCUMENT_ROOT__ON_ENTRY_SCRIPT, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnEntryScript(OnEntryScriptType newOnEntryScript, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DroolsPackage.Literals.DOCUMENT_ROOT__ON_ENTRY_SCRIPT, newOnEntryScript, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnEntryScript(OnEntryScriptType newOnEntryScript) {
-		((FeatureMap.Internal)getMixed()).set(DroolsPackage.Literals.DOCUMENT_ROOT__ON_ENTRY_SCRIPT, newOnEntryScript);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OnExitScriptType getOnExitScript() {
-		return (OnExitScriptType)getMixed().get(DroolsPackage.Literals.DOCUMENT_ROOT__ON_EXIT_SCRIPT, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnExitScript(OnExitScriptType newOnExitScript, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DroolsPackage.Literals.DOCUMENT_ROOT__ON_EXIT_SCRIPT, newOnExitScript, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnExitScript(OnExitScriptType newOnExitScript) {
-		((FeatureMap.Internal)getMixed()).set(DroolsPackage.Literals.DOCUMENT_ROOT__ON_EXIT_SCRIPT, newOnExitScript);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BPSimDataType getBpsimData() {
-		return (BPSimDataType)getMixed().get(DroolsPackage.Literals.DOCUMENT_ROOT__BPSIM_DATA, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBpsimData(BPSimDataType newBpsimData, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DroolsPackage.Literals.DOCUMENT_ROOT__BPSIM_DATA, newBpsimData, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBpsimData(BPSimDataType newBpsimData) {
-		((FeatureMap.Internal)getMixed()).set(DroolsPackage.Literals.DOCUMENT_ROOT__BPSIM_DATA, newBpsimData);
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -393,27 +256,6 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 		priority = newPriority;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DroolsPackage.DOCUMENT_ROOT__PRIORITY, oldPriority, priority));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRuleFlowGroup() {
-		return ruleFlowGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRuleFlowGroup(String newRuleFlowGroup) {
-		String oldRuleFlowGroup = ruleFlowGroup;
-		ruleFlowGroup = newRuleFlowGroup;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DroolsPackage.DOCUMENT_ROOT__RULE_FLOW_GROUP, oldRuleFlowGroup, ruleFlowGroup));
 	}
 
 	/**
@@ -466,20 +308,12 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DroolsPackage.DOCUMENT_ROOT__GLOBAL:
-				return basicSetGlobal(null, msgs);
 			case DroolsPackage.DOCUMENT_ROOT__IMPORT_TYPE:
 				return basicSetImportType(null, msgs);
 			case DroolsPackage.DOCUMENT_ROOT__META_DATA:
 				return basicSetMetaData(null, msgs);
 			case DroolsPackage.DOCUMENT_ROOT__META_VALUE:
 				return basicSetMetaValue(null, msgs);
-			case DroolsPackage.DOCUMENT_ROOT__ON_ENTRY_SCRIPT:
-				return basicSetOnEntryScript(null, msgs);
-			case DroolsPackage.DOCUMENT_ROOT__ON_EXIT_SCRIPT:
-				return basicSetOnExitScript(null, msgs);
-			case DroolsPackage.DOCUMENT_ROOT__BPSIM_DATA:
-				return basicSetBpsimData(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -492,26 +326,16 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DroolsPackage.DOCUMENT_ROOT__GLOBAL:
-				return getGlobal();
 			case DroolsPackage.DOCUMENT_ROOT__IMPORT_TYPE:
 				return getImportType();
 			case DroolsPackage.DOCUMENT_ROOT__META_DATA:
 				return getMetaData();
 			case DroolsPackage.DOCUMENT_ROOT__META_VALUE:
 				return getMetaValue();
-			case DroolsPackage.DOCUMENT_ROOT__ON_ENTRY_SCRIPT:
-				return getOnEntryScript();
-			case DroolsPackage.DOCUMENT_ROOT__ON_EXIT_SCRIPT:
-				return getOnExitScript();
-			case DroolsPackage.DOCUMENT_ROOT__BPSIM_DATA:
-				return getBpsimData();
 			case DroolsPackage.DOCUMENT_ROOT__PACKAGE_NAME:
 				return getPackageName();
 			case DroolsPackage.DOCUMENT_ROOT__PRIORITY:
 				return getPriority();
-			case DroolsPackage.DOCUMENT_ROOT__RULE_FLOW_GROUP:
-				return getRuleFlowGroup();
 			case DroolsPackage.DOCUMENT_ROOT__TASK_NAME:
 				return getTaskName();
 			case DroolsPackage.DOCUMENT_ROOT__VERSION:
@@ -528,9 +352,6 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DroolsPackage.DOCUMENT_ROOT__GLOBAL:
-				setGlobal((GlobalType)newValue);
-				return;
 			case DroolsPackage.DOCUMENT_ROOT__IMPORT_TYPE:
 				setImportType((ImportType)newValue);
 				return;
@@ -540,23 +361,11 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 			case DroolsPackage.DOCUMENT_ROOT__META_VALUE:
 				setMetaValue((MetaValueType)newValue);
 				return;
-			case DroolsPackage.DOCUMENT_ROOT__ON_ENTRY_SCRIPT:
-				setOnEntryScript((OnEntryScriptType)newValue);
-				return;
-			case DroolsPackage.DOCUMENT_ROOT__ON_EXIT_SCRIPT:
-				setOnExitScript((OnExitScriptType)newValue);
-				return;
-			case DroolsPackage.DOCUMENT_ROOT__BPSIM_DATA:
-				setBpsimData((BPSimDataType)newValue);
-				return;
 			case DroolsPackage.DOCUMENT_ROOT__PACKAGE_NAME:
 				setPackageName((String)newValue);
 				return;
 			case DroolsPackage.DOCUMENT_ROOT__PRIORITY:
 				setPriority((BigInteger)newValue);
-				return;
-			case DroolsPackage.DOCUMENT_ROOT__RULE_FLOW_GROUP:
-				setRuleFlowGroup((String)newValue);
 				return;
 			case DroolsPackage.DOCUMENT_ROOT__TASK_NAME:
 				setTaskName((String)newValue);
@@ -576,9 +385,6 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DroolsPackage.DOCUMENT_ROOT__GLOBAL:
-				setGlobal((GlobalType)null);
-				return;
 			case DroolsPackage.DOCUMENT_ROOT__IMPORT_TYPE:
 				setImportType((ImportType)null);
 				return;
@@ -588,23 +394,11 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 			case DroolsPackage.DOCUMENT_ROOT__META_VALUE:
 				setMetaValue((MetaValueType)null);
 				return;
-			case DroolsPackage.DOCUMENT_ROOT__ON_ENTRY_SCRIPT:
-				setOnEntryScript((OnEntryScriptType)null);
-				return;
-			case DroolsPackage.DOCUMENT_ROOT__ON_EXIT_SCRIPT:
-				setOnExitScript((OnExitScriptType)null);
-				return;
-			case DroolsPackage.DOCUMENT_ROOT__BPSIM_DATA:
-				setBpsimData((BPSimDataType)null);
-				return;
 			case DroolsPackage.DOCUMENT_ROOT__PACKAGE_NAME:
 				setPackageName(PACKAGE_NAME_EDEFAULT);
 				return;
 			case DroolsPackage.DOCUMENT_ROOT__PRIORITY:
 				setPriority(PRIORITY_EDEFAULT);
-				return;
-			case DroolsPackage.DOCUMENT_ROOT__RULE_FLOW_GROUP:
-				setRuleFlowGroup(RULE_FLOW_GROUP_EDEFAULT);
 				return;
 			case DroolsPackage.DOCUMENT_ROOT__TASK_NAME:
 				setTaskName(TASK_NAME_EDEFAULT);
@@ -624,26 +418,16 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DroolsPackage.DOCUMENT_ROOT__GLOBAL:
-				return getGlobal() != null;
 			case DroolsPackage.DOCUMENT_ROOT__IMPORT_TYPE:
 				return getImportType() != null;
 			case DroolsPackage.DOCUMENT_ROOT__META_DATA:
 				return getMetaData() != null;
 			case DroolsPackage.DOCUMENT_ROOT__META_VALUE:
 				return getMetaValue() != null;
-			case DroolsPackage.DOCUMENT_ROOT__ON_ENTRY_SCRIPT:
-				return getOnEntryScript() != null;
-			case DroolsPackage.DOCUMENT_ROOT__ON_EXIT_SCRIPT:
-				return getOnExitScript() != null;
-			case DroolsPackage.DOCUMENT_ROOT__BPSIM_DATA:
-				return getBpsimData() != null;
 			case DroolsPackage.DOCUMENT_ROOT__PACKAGE_NAME:
 				return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
 			case DroolsPackage.DOCUMENT_ROOT__PRIORITY:
 				return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
-			case DroolsPackage.DOCUMENT_ROOT__RULE_FLOW_GROUP:
-				return RULE_FLOW_GROUP_EDEFAULT == null ? ruleFlowGroup != null : !RULE_FLOW_GROUP_EDEFAULT.equals(ruleFlowGroup);
 			case DroolsPackage.DOCUMENT_ROOT__TASK_NAME:
 				return TASK_NAME_EDEFAULT == null ? taskName != null : !TASK_NAME_EDEFAULT.equals(taskName);
 			case DroolsPackage.DOCUMENT_ROOT__VERSION:
@@ -666,8 +450,6 @@ public class DocumentRootImpl extends org.eclipse.bpmn2.impl.DocumentRootImpl im
 		result.append(packageName);
 		result.append(", priority: ");
 		result.append(priority);
-		result.append(", ruleFlowGroup: ");
-		result.append(ruleFlowGroup);
 		result.append(", taskName: ");
 		result.append(taskName);
 		result.append(", version: ");
