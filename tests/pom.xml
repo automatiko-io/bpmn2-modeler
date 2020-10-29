@@ -21,8 +21,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		</dependency>
 	</dependencies>
 	
-	<modules>
-		<module>org.eclipse.bpmn2.modeler.runtime.jboss.jbpm5.tests</module>
+	<modules>	
 		<module>org.eclipse.bpmn2.modeler.core.tests</module>
 	</modules>
 </project>
