@@ -14,9 +14,7 @@
 package org.eclipse.bpmn2.modeler.runtime.automatik.property;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.bpmn2.DataAssociation;
 import org.eclipse.bpmn2.DataInput;
@@ -34,8 +32,6 @@ import org.eclipse.bpmn2.PotentialOwner;
 import org.eclipse.bpmn2.ResourceAssignmentExpression;
 import org.eclipse.bpmn2.ResourceRole;
 import org.eclipse.bpmn2.Task;
-import org.eclipse.bpmn2.modeler.core.Activator;
-import org.eclipse.bpmn2.modeler.core.IConstants;
 import org.eclipse.bpmn2.modeler.core.adapters.ExtendedPropertiesAdapter;
 import org.eclipse.bpmn2.modeler.core.adapters.InsertionAdapter;
 import org.eclipse.bpmn2.modeler.core.features.CustomElementFeatureContainer;
@@ -49,7 +45,6 @@ import org.eclipse.bpmn2.modeler.core.merrimac.clad.IPropertiesCompositeFactory;
 import org.eclipse.bpmn2.modeler.core.merrimac.clad.ListCompositeColumnProvider;
 import org.eclipse.bpmn2.modeler.core.merrimac.clad.ListCompositeContentProvider;
 import org.eclipse.bpmn2.modeler.core.merrimac.clad.TableColumn;
-import org.eclipse.bpmn2.modeler.core.merrimac.dialogs.ButtonObjectEditor;
 import org.eclipse.bpmn2.modeler.core.merrimac.dialogs.ObjectEditingDialog;
 import org.eclipse.bpmn2.modeler.core.merrimac.dialogs.ReadonlyTextObjectEditor;
 import org.eclipse.bpmn2.modeler.core.merrimac.dialogs.TextObjectEditor;
@@ -57,25 +52,15 @@ import org.eclipse.bpmn2.modeler.core.runtime.ModelExtensionDescriptor;
 import org.eclipse.bpmn2.modeler.core.runtime.ModelExtensionDescriptor.Property;
 import org.eclipse.bpmn2.modeler.core.runtime.TargetRuntime;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil;
-import org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmCustomTaskFeatureContainer;
-import org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmCustomTaskFeatureContainer.ConfigureWorkItemFeature;
-import org.eclipse.bpmn2.modeler.runtime.automatik.wid.editor.DroolsProxy;
-import org.eclipse.bpmn2.modeler.ui.ImageProvider;
 import org.eclipse.bpmn2.modeler.ui.property.tasks.IoParameterMappingColumn;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.graphiti.features.IFeatureProvider;
-import org.eclipse.graphiti.features.context.impl.CustomContext;
-import org.eclipse.graphiti.features.custom.ICustomFeature;
-import org.eclipse.graphiti.mm.pictograms.PictogramElement;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 
 /**
  * @author Bob Brodt
@@ -171,18 +156,7 @@ public class JbpmTaskDetailComposite extends JbpmActivityDetailComposite {
 	 * @param task
 	 */
 	protected void createInputParameterBindings(final Task task) {
-		// Does the WID for this Task define a Work Item Editor dialog?
-		// If so, do not display the WID parameters in this Property tab.
-		final IFeatureProvider fp = getDiagramEditor().getDiagramTypeProvider().getFeatureProvider();
-		final PictogramElement pe = fp.getPictogramElementForBusinessObject(task);
-		final CustomContext cc = new CustomContext(new PictogramElement[] { pe });
-		for (ICustomFeature cf : fp.getCustomFeatures(cc)) {
-			if (cf.isAvailable(cc) && cf.canExecute(cc) && cf instanceof ConfigureWorkItemFeature) {
-				((ConfigureWorkItemFeature)cf).createConfigureButton(this, task);
-				return;
-			}
-		}
-    	
+
 		// Get the Model Extension Descriptor for this Custom Task.
 		// This will contain the Data Inputs and Outputs that were
 		// defined for the Custom Task either in the plugin.xml

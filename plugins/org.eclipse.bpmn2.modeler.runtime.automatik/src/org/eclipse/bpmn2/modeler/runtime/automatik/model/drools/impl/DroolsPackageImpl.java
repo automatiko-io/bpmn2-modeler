@@ -610,7 +610,14 @@ public class DroolsPackageImpl extends EPackageImpl implements DroolsPackage {
 		   new String[] {
 			 "name", "metaValue_._type",
 			 "kind", "mixed"
-		   });			
+		   });	
+		addAnnotation
+		  (getMetaValueType_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
+		   });
 		addAnnotation
 		  (packageNameTypeEDataType, 
 		   source, 

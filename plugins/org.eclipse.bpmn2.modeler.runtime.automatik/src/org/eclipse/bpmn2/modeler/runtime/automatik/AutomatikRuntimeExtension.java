@@ -12,10 +12,6 @@
  ******************************************************************************/
 package org.eclipse.bpmn2.modeler.runtime.automatik;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map.Entry;
-
 import org.eclipse.bpmn2.Activity;
 import org.eclipse.bpmn2.DataInput;
 import org.eclipse.bpmn2.DataOutput;
@@ -37,12 +33,8 @@ import org.eclipse.bpmn2.modeler.core.IBpmn2RuntimeExtension;
 import org.eclipse.bpmn2.modeler.core.LifecycleEvent;
 import org.eclipse.bpmn2.modeler.core.LifecycleEvent.EventType;
 import org.eclipse.bpmn2.modeler.core.merrimac.clad.PropertiesCompositeFactory;
-import org.eclipse.bpmn2.modeler.core.runtime.CustomTaskDescriptor;
-import org.eclipse.bpmn2.modeler.core.runtime.CustomTaskImageProvider;
-import org.eclipse.bpmn2.modeler.core.runtime.ModelExtensionDescriptor.Property;
 import org.eclipse.bpmn2.modeler.core.runtime.TargetRuntime;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil.Bpmn2DiagramType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmCustomTaskFeatureContainer;
 import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmActivityDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmCommonEventDetailComposite;
@@ -63,20 +55,10 @@ import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmScriptTaskDetail
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSendTaskDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSequenceFlowDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmTaskDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WIDLoader;
-import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WorkItemDefinition;
-import org.eclipse.bpmn2.modeler.runtime.automatik.wid.WorkItemDefinition.Parameter;
 import org.eclipse.bpmn2.modeler.ui.AbstractBpmn2RuntimeExtension.RootElementParser;
-import org.eclipse.bpmn2.modeler.ui.editor.BPMN2Editor;
 import org.eclipse.bpmn2.modeler.ui.wizards.FileService;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.osgi.util.NLS;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.xml.sax.InputSource;
 
@@ -85,8 +67,6 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 	public final static String JBPM5_RUNTIME_ID = "bpmn2.automatik"; //$NON-NLS-1$
 	public final static String AUTOMATIK_NAMESPACE = "http://www.jboss.org/drools"; //$NON-NLS-1$
 
-	private List<WorkItemDefinition> workItemDefinitions;
-	
 	/* (non-Javadoc)
 	 * Check if the given input file is a drools-generated (jBPM) process file.
 	 * 
@@ -105,94 +85,12 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 		return AUTOMATIK_NAMESPACE;
 	}
 
-	public List<WorkItemDefinition> getWorkItemDefinitions() {
-		if (workItemDefinitions==null)
-			workItemDefinitions = new ArrayList<WorkItemDefinition>();
-		return workItemDefinitions;
-	}
-
-	public WorkItemDefinition getWorkItemDefinition(String taskName) {
-		if (taskName!=null && !taskName.isEmpty()) {
-			List<WorkItemDefinition> wids = getWorkItemDefinitions();
-			for (WorkItemDefinition wid : wids) {
-				if (taskName.equals(wid.getName())) {
-					return wid;
-				}
-			}
-		}
-		return null;
-	}
 	
 	@Override
 	public void notify(LifecycleEvent event) {
         TargetRuntime targetRuntime = event.targetRuntime;
 
-		if (event.eventType == EventType.EDITOR_STARTUP) {
-			// TODO: if file was opened from a Guvnor Repository view (or git in jBPM 6)
-			// we may want to explicitly make the editor read-only
-	
-			IFile inputFile = ((BPMN2Editor) event.target).getModelFile();
-			if (inputFile!=null) {
-				IProject project = inputFile.getProject();
-
-				// initialize workItemDefinitions list if necessary
-				getWorkItemDefinitions().clear();
-				try {
-					final WIDLoader loader = new WIDLoader();
-					loader.load(project);
-					
-					if (loader.getClasspathWIDs().size() > 0) {
-						workItemDefinitions.addAll(loader.getClasspathWIDs());
-						for (Entry<String, ImageDescriptor> e : loader.getClasspathIcons().entrySet()) {
-							CustomTaskImageProvider.registerImage(e.getKey(), e.getValue());
-						}
-					}
-
-					if (loader.getProjectWIDs().size() > 0) {
-						workItemDefinitions.addAll(loader.getProjectWIDs());
-						for (Entry<String, ImageDescriptor> e : loader.getProjectIcons().entrySet()) {
-							CustomTaskImageProvider.registerImage(e.getKey(), e.getValue());
-						}
-					}
-
-					if (!workItemDefinitions.isEmpty()) {
-						List<CustomTaskDescriptor> removed = new ArrayList<CustomTaskDescriptor>();
-						for (CustomTaskDescriptor d : targetRuntime.getCustomTaskDescriptors()) {
-							if (!d.isPermanent())
-								removed.add(d);
-						}
-						targetRuntime.getCustomTaskDescriptors().removeAll(removed);
-					
-						java.util.Iterator<WorkItemDefinition> widIterator = workItemDefinitions.iterator();
-						while(widIterator.hasNext()) {
-							final WorkItemDefinition wid = widIterator.next();
-							final CustomTaskDescriptor ctd = convertWIDtoCT(inputFile.getProject(),wid);
-							if (ctd != null) {
-								if (targetRuntime.customTaskExists(ctd.getId())) {
-									Display.getDefault().asyncExec( new Runnable() {
-										@Override
-										public void run() {
-											MessageDialog.openError(Display.getDefault().getActiveShell(),
-													Messages.JBPM5RuntimeExtension_Duplicate_Task_Title,
-													NLS.bind(
-														Messages.JBPM5RuntimeExtension_Duplicate_Task_Message,
-														ctd.getId(),
-														wid.getDefinitionFile())
-												);
-										}
-									});
-								}
-								else
-									targetRuntime.addCustomTask(ctd);
-							}
-						}
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		else if (event.eventType == EventType.EDITOR_INITIALIZED) {
+		if (event.eventType == EventType.EDITOR_INITIALIZED) {
 			// Register all of our Property Tab Detail overrides here. 
 			PropertiesCompositeFactory.register(Activity.class, JbpmActivityDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(DataInput.class, JbpmDataAssociationDetailComposite.class, targetRuntime);
@@ -240,194 +138,6 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 			else if (ElementNameChangeAdapter.appliesTo(object)) {
 				ElementNameChangeAdapter.adapt(object);
 			}
-		}
-	}
-	
-	/*
-	 * Convert a WID to a CustomTaskDescriptor
-	 * @param wid
-	 * @return
-	 */
-	private CustomTaskDescriptor convertWIDtoCT(IProject project, WorkItemDefinition wid) {
-		if (wid != null) {
-			String id = wid.getName();
-			String name = wid.getDisplayName();
-			CustomTaskDescriptor ct = new CustomTaskDescriptor(id,name);
-			ct.setType("Task"); //$NON-NLS-1$
-			ct.setDescription(wid.getDescription());
-			ct.setCategory(wid.getCategory());
-			ct.setFeatureContainer(new JbpmCustomTaskFeatureContainer());
-			ct.getFeatureContainer().setCustomTaskDescriptor(ct);
-			ct.getFeatureContainer().setId(id);
-			
-			// process basic properties here
-			setBasicProps ( ct, wid);
-			
-			// process xml properties here - i.e. task variables
-			Property ioSpecification = createIOSpecificationSection(ct, wid);
-			createDataAssociations(ioSpecification, ct);
-			
-			return ct;
-		}
-		return null;
-	}
-	
-	/*
-	 * Process the high-level props
-	 * @param propName
-	 * @param wid
-	 * @return
-	 */
-	private String getWIDPropertyValue ( String propName, WorkItemDefinition wid) {
-		if (propName.equalsIgnoreCase("taskname")) { //$NON-NLS-1$
-			return wid.getName();
-		}
-		if (propName.equalsIgnoreCase("displayName")) { //$NON-NLS-1$
-			return wid.getDisplayName();
-		}
-		if (propName.equalsIgnoreCase("icon")) { //$NON-NLS-1$
-			return wid.getIcon();
-		}
-		if (propName.equalsIgnoreCase("customEditor")) { //$NON-NLS-1$
-			return wid.getCustomEditor();
-		}
-		if (propName.equalsIgnoreCase("eclipse:customEditor")) { //$NON-NLS-1$
-			return wid.getEclipseCustomEditor();
-		}
-		return null;
-	}
-	
-	/*
-	 * Get the high-level prop from the WID
-	 * @param propName
-	 * @param wid
-	 * @return
-	 */
-	private Property getPropertyFromWID ( String propName, WorkItemDefinition wid ) {
-		String name = propName;
-		String value = getWIDPropertyValue(propName, wid);
-		String description = null;
-		String type = "EString"; //$NON-NLS-1$
-		Property prop = new Property(null, name, description);
-		prop.type = type;
-		if (value == null && propName.equalsIgnoreCase("icon")) { //$NON-NLS-1$
-			value = "task.png"; //$NON-NLS-1$
-		}
-		if (value!=null)
-			prop.getValues().add(value);
-		return prop;
-	}
-	
-	/*
-	 * Create the input and output data associations
-	 * @param ioSpecification
-	 * @param ct
-	 */
-	private void createDataAssociations ( Property ioSpecification, CustomTaskDescriptor ct) {
-		Object[] values = ioSpecification.getValues().toArray();
-		int inputCounter = -1;
-		int outputCounter = -1;
-		for (int i = 0; i < values.length; i++) {
-			if (values[i] instanceof Property) {
-				Property prop = (Property) values[i];
-				if (prop.name.equals("dataInputs")) { //$NON-NLS-1$
-					inputCounter++;
-					Property dataInputAssociations = new Property (prop, "dataInputAssociations", null); //$NON-NLS-1$
-					Property targetRef = new Property (dataInputAssociations, "targetRef", null); //$NON-NLS-1$
-					targetRef.ref = "ioSpecification/dataInputs#" + inputCounter; //$NON-NLS-1$
-					dataInputAssociations.getValues().add(targetRef);
-					ct.getProperties().add(dataInputAssociations);
-				}
-				else if (prop.name.equals("dataOutputs")) {
-					outputCounter++;
-					Property dataOutputAssociations = new Property (prop, "dataOutputAssociations", null);
-					Property sourceRef = new Property (prop, "sourceRef", null);
-					sourceRef.ref = "ioSpecification/dataOutputs#" + outputCounter;
-					dataOutputAssociations.getValues().add(sourceRef);
-//					Property targetRef = new Property (prop, "targetRef", null);
-//					dataOutputAssociations.getValues().add(targetRef);
-					ct.getProperties().add(dataOutputAssociations);
-				}
-
-			}
-		}
-	}
-	
-	/*
-	 * Handle creating the ioSpecification from the WID/CT
-	 * @param ct
-	 * @param wid
-	 */
-	private Property createIOSpecificationSection ( CustomTaskDescriptor ct, WorkItemDefinition wid ) {
-		Property ioSpecification = new Property (null,"ioSpecification", null); //$NON-NLS-1$
-		
-		for (Entry<String, Parameter> entry : wid.getParameters().entrySet()) {
-			Property dataInputs = new Property(ioSpecification,"dataInputs", null); //$NON-NLS-1$
-			Property dataInputsName = new Property(dataInputs,"name", null); //$NON-NLS-1$
-			dataInputsName.getValues().add(entry.getKey());
-			dataInputs.getValues().add(dataInputsName);
-			ioSpecification.getValues().add(dataInputs);
-		}
-
-		// this code if enabled will create a default output variable
-		
-//		if (wid.getResults().isEmpty()) {
-//			Property dataOutputs = new Property("dataOutputs", null);
-//			Property dataOutputsName = new Property("name", null);
-//			dataOutputsName.getValues().add("result");
-//			dataOutputs.getValues().add(dataOutputsName);
-//			ioSpecification.getValues().add(dataOutputs);
-//		} else {
-			for (Entry<String, Parameter> entry : wid.getResults().entrySet()) {
-				Property dataOutputs = new Property(ioSpecification,"dataOutputs", null); //$NON-NLS-1$
-				Property dataOutputsName = new Property(dataOutputs,"name", null); //$NON-NLS-1$
-				dataOutputsName.getValues().add(entry.getKey());
-				dataOutputs.getValues().add(dataOutputsName);
-				ioSpecification.getValues().add(dataOutputs);
-			}
-//		}
-
-		Object[] values = ioSpecification.getValues().toArray();
-		int inputCounter = -1;
-		int outputCounter = -1;
-		Property inputSets = new Property(ioSpecification,"inputSets", null); //$NON-NLS-1$
-		Property outputSets = new Property(ioSpecification,"outputSets", null); //$NON-NLS-1$
-		for (int i = 0; i < values.length; i++) {
-			if (values[i] instanceof Property) {
-				Property prop = (Property) values[i];
-				if (prop.name.equals("dataInputs")) { //$NON-NLS-1$
-					inputCounter++;
-					Property inputSetsRef = new Property (inputSets,"dataInputRefs", null); //$NON-NLS-1$
-					inputSetsRef.ref = "ioSpecification/dataInputs#" + inputCounter; //$NON-NLS-1$
-					inputSets.getValues().add(inputSetsRef);
-				} else 	if (prop.name.equals("dataOutputs")) { //$NON-NLS-1$
-					outputCounter++;
-					Property outputSetsRef = new Property (outputSets,"dataOutputRefs", null); //$NON-NLS-1$
-					outputSetsRef.ref = "ioSpecification/dataOutputs#" + outputCounter; //$NON-NLS-1$
-					outputSets.getValues().add(outputSetsRef);
-				}
-			}
-		}
-		if (inputSets.getValues().size() > 0) 
-			ioSpecification.getValues().add(inputSets);
-		if (outputSets.getValues().size() > 0) 
-			ioSpecification.getValues().add(outputSets);
-		
-		ct.getProperties().add(ioSpecification);
-		return ioSpecification;
-	}
-	
-	/*
-	 * Handle the top-level props
-	 * @param ct
-	 * @param wid
-	 */
-	private void setBasicProps ( CustomTaskDescriptor ct, WorkItemDefinition wid) {
-		String[] basicProps = new String[] { "taskName", "displayName", "icon" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-		for (int i = 0; i < basicProps.length; i++) {
-			Property prop = getPropertyFromWID(basicProps[i], wid);
-			if (prop!=null)
-				ct.getProperties().add(prop);
 		}
 	}
 }
