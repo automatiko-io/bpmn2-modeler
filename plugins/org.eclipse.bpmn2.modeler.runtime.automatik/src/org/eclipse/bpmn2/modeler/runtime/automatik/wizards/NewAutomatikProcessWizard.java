@@ -196,7 +196,7 @@ public class NewAutomatikProcessWizard extends Wizard implements INewWizard {
 			"	xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\"\n"+ //$NON-NLS-1$
 			"	xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\"\n"+ //$NON-NLS-1$
 			"	xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\"\n"+ //$NON-NLS-1$
-			"	xmlns:tns=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
+			"	xmlns:automatik=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
 			"	xmlns=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
 			"	xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd https://automatik-platform.io automatik.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd\"\n"+ //$NON-NLS-1$
 			"	id=\"Definition\"\n"+ //$NON-NLS-1$
@@ -207,7 +207,7 @@ public class NewAutomatikProcessWizard extends Wizard implements INewWizard {
 			"  <bpmn2:process processType=\"Public\" isExecutable=\"true\""+ //$NON-NLS-1$
 			" id=\""+processId+"\""+ //$NON-NLS-1$ //$NON-NLS-2$
 			" name=\""+processName+"\""+ //$NON-NLS-1$ //$NON-NLS-2$
-			" tns:packageName=\""+packageName+"\""+ //$NON-NLS-1$ //$NON-NLS-2$
+			" automatik:packageName=\""+packageName+"\""+ //$NON-NLS-1$ //$NON-NLS-2$
 			" >\n"+ //$NON-NLS-1$
 			"    <bpmn2:startEvent id=\"StartEvent_1\" name=\"StartProcess\"/>\n"+ //$NON-NLS-1$
 			"  </bpmn2:process>\n"+ //$NON-NLS-1$
