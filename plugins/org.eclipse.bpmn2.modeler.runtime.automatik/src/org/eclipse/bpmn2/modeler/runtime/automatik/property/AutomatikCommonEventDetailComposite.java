@@ -89,7 +89,7 @@ public class AutomatikCommonEventDetailComposite extends CommonEventDetailCompos
 					@Override
 					public AbstractDetailComposite createDetailComposite(Class eClass, Composite parent, int style) {
 						if (eClass==TimerEventDefinition.class) {
-							return new JbpmTimerEventDefinitionDetailComposite(parent, style);
+							return new AutomatikTimerEventDefinitionDetailComposite(parent, style);
 						}
 						if (eClass==ConditionalEventDefinition.class){
 							return new ConditionalEventDefinitionDetailComposite(parent, style);
@@ -119,8 +119,8 @@ public class AutomatikCommonEventDetailComposite extends CommonEventDetailCompos
 							eventDefinitions = ((CatchEvent)event).getEventDefinitions();
 							
 						if (eventDefinitions.size()>0) {
-							MessageDialog.openError(getShell(), Messages.JbpmCommonEventDetailComposite_Error_Title,
-								Messages.JbpmCommonEventDetailComposite_Error_Message
+							MessageDialog.openError(getShell(), Messages.AutomatikCommonEventDetailComposite_Error_Title,
+								Messages.AutomatikCommonEventDetailComposite_Error_Message
 							);
 							return null;
 						}
@@ -139,7 +139,7 @@ public class AutomatikCommonEventDetailComposite extends CommonEventDetailCompos
 					}
 				};
 				eventsTable.bindList(object, feature);
-				eventsTable.setTitle(Messages.JbpmCommonEventDetailComposite_Title);
+				eventsTable.setTitle(Messages.AutomatikCommonEventDetailComposite_Title);
 				return eventsTable;
 			}
 			else if ("dataInputs".equals(feature.getName()) || "dataOutputs".equals(feature.getName())) { //$NON-NLS-1$ //$NON-NLS-2$
@@ -161,11 +161,11 @@ public class AutomatikCommonEventDetailComposite extends CommonEventDetailCompos
 		return null;
 	}
 	
-	public static class JbpmTimerEventDefinitionDetailComposite extends TimerEventDefinitionDetailComposite {
+	public static class AutomatikTimerEventDefinitionDetailComposite extends TimerEventDefinitionDetailComposite {
 
 		protected ObjectEditor scriptLanguageEditor;
 
-		public JbpmTimerEventDefinitionDetailComposite(Composite parent, int style) {
+		public AutomatikTimerEventDefinitionDetailComposite(Composite parent, int style) {
 			super(parent, style);
 			// TODO Auto-generated constructor stub
 		}
@@ -173,7 +173,7 @@ public class AutomatikCommonEventDetailComposite extends CommonEventDetailCompos
 		/**
 		 * @param section
 		 */
-		public JbpmTimerEventDefinitionDetailComposite(AbstractBpmn2PropertySection section) {
+		public AutomatikTimerEventDefinitionDetailComposite(AbstractBpmn2PropertySection section) {
 			super(section);
 			// TODO Auto-generated constructor stub
 		}
@@ -182,7 +182,7 @@ public class AutomatikCommonEventDetailComposite extends CommonEventDetailCompos
 		public void createBindings(EObject be) {
 			super.createBindings(be);
 			scriptLanguageEditor = new ExpressionLanguageObjectEditor(this, expression, PACKAGE.getFormalExpression_Language());
-			scriptLanguageEditor.createControl(getAttributesParent(), Messages.JbpmCommonEventDetailComposite_TimerScriptLanguage);
+			scriptLanguageEditor.createControl(getAttributesParent(), Messages.AutomatikCommonEventDetailComposite_TimerScriptLanguage);
 		}
 	}
 }

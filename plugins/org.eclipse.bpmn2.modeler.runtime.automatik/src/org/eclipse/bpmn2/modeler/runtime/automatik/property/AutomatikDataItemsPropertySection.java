@@ -68,10 +68,10 @@ public class AutomatikDataItemsPropertySection extends DataItemsPropertySection 
 						if (type!=null) {
 							ImportType it = AutomatikModelUtil.addImport(type, object);
 							if (it==null)
-								throw new OperationCanceledException(Messages.JbpmDataItemsPropertySection_Duplicate_Import);
+								throw new OperationCanceledException(Messages.AutomatikDataItemsPropertySection_Duplicate_Import);
 							return it;
 						}
-						throw new OperationCanceledException(Messages.JbpmDataItemsPropertySection_Dialog_Cancelled);
+						throw new OperationCanceledException(Messages.AutomatikDataItemsPropertySection_Dialog_Cancelled);
 					}
 				};
 				editor.createControl(parent,label);

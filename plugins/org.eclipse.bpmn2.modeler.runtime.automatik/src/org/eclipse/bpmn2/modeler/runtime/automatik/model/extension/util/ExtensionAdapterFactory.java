@@ -148,13 +148,13 @@ public class ExtensionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType <em>Global Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.GlobalType <em>Global Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.GlobalType
+	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.GlobalType
 	 * @generated
 	 */
 	public Adapter createGlobalTypeAdapter() {
@@ -204,13 +204,13 @@ public class ExtensionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType <em>On Entry Script Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.OnEntryScriptType <em>On Entry Script Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnEntryScriptType
+	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.OnEntryScriptType
 	 * @generated
 	 */
 	public Adapter createOnEntryScriptTypeAdapter() {
@@ -218,13 +218,13 @@ public class ExtensionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType <em>On Exit Script Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.OnExitScriptType <em>On Exit Script Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.OnExitScriptType
+	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.OnExitScriptType
 	 * @generated
 	 */
 	public Adapter createOnExitScriptTypeAdapter() {
@@ -232,13 +232,13 @@ public class ExtensionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType <em>BP Sim Data Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.BPSimDataType <em>BP Sim Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.BPSimDataType
+	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.BPSimDataType
 	 * @generated
 	 */
 	public Adapter createBPSimDataTypeAdapter() {

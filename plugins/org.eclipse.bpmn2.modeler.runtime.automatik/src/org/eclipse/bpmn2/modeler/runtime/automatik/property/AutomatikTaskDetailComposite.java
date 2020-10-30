@@ -325,7 +325,7 @@ public class AutomatikTaskDetailComposite extends AutomatikActivityDetailComposi
 			if (isModelObjectEnabled(object.eClass(), feature)) {
 				ActorsListComposite actors = new ActorsListComposite(this);
 				actors.bindList(object, feature);
-				actors.setTitle(Messages.JbpmTaskDetailComposite_Actors_Title);
+				actors.setTitle(Messages.AutomatikTaskDetailComposite_Actors_Title);
 				return actors;
 			}
 			return null;
@@ -337,7 +337,7 @@ public class AutomatikTaskDetailComposite extends AutomatikActivityDetailComposi
 	public class ActorsNameTableColumn extends TableColumn {
 		public ActorsNameTableColumn(EObject object) {
 			super(object, PACKAGE.getFormalExpression_Body());
-			setHeaderText(Messages.JbpmTaskDetailComposite_Actors_Name_Column);
+			setHeaderText(Messages.AutomatikTaskDetailComposite_Actors_Name_Column);
 			setEditable(true);
 		}
 	}
@@ -399,7 +399,7 @@ public class AutomatikTaskDetailComposite extends AutomatikActivityDetailComposi
 				protected void bindAttribute(Composite parent, EObject object, EAttribute attribute, String label) {
 					TextObjectEditor editor = new TextObjectEditor(this,object,attribute);
 					editor.setMultiLine(false);
-					editor.createControl(parent,Messages.JbpmTaskDetailComposite_Actors_Name_Column);
+					editor.createControl(parent,Messages.AutomatikTaskDetailComposite_Actors_Name_Column);
 				}
 			};
 			return composite;
@@ -416,7 +416,7 @@ public class AutomatikTaskDetailComposite extends AutomatikActivityDetailComposi
 			owner.setResourceAssignmentExpression(resourceAssignment);
 			task.getResources().add(owner);
 
-			expression.setBody(Messages.JbpmTaskDetailComposite_Actors_Label);
+			expression.setBody(Messages.AutomatikTaskDetailComposite_Actors_Label);
 			
 			return expression;
 		}

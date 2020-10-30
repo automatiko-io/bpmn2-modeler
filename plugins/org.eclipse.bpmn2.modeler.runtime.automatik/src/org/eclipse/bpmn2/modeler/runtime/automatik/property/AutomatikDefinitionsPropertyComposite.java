@@ -98,7 +98,7 @@ public class AutomatikDefinitionsPropertyComposite extends DefinitionsPropertyCo
 							}	
 						};
 						importsTable.bindList(process, ExtensionPackage.eINSTANCE.getDocumentRoot_ImportType());
-						importsTable.setTitle(Messages.JbpmDefinitionsPropertyComposite_Imports_Title);
+						importsTable.setTitle(Messages.AutomatikDefinitionsPropertyComposite_Imports_Title);
 						return importsTable;
 					}
 				}

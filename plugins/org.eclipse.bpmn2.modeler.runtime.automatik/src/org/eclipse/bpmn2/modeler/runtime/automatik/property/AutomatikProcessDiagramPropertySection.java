@@ -39,21 +39,21 @@ public class AutomatikProcessDiagramPropertySection extends ProcessDiagramProper
 
 	@Override
 	protected AbstractDetailComposite createSectionRoot() {
-		return new JbpmProcessDiagramDetailComposite(this);
+		return new AutomatikProcessDiagramDetailComposite(this);
 	}
 
 	@Override
 	public AbstractDetailComposite createSectionRoot(Composite parent, int style) {
-		return new JbpmProcessDiagramDetailComposite(parent,style);
+		return new AutomatikProcessDiagramDetailComposite(parent,style);
 	}
 
-	public class JbpmProcessDiagramDetailComposite extends ProcessDiagramDetailComposite {
+	public class AutomatikProcessDiagramDetailComposite extends ProcessDiagramDetailComposite {
 		
-		public JbpmProcessDiagramDetailComposite(AbstractBpmn2PropertySection section) {
+		public AutomatikProcessDiagramDetailComposite(AbstractBpmn2PropertySection section) {
 			super(section);
 		}
 
-		public JbpmProcessDiagramDetailComposite(Composite parent, int style) {
+		public AutomatikProcessDiagramDetailComposite(Composite parent, int style) {
 			super(parent, style);
 		}
 

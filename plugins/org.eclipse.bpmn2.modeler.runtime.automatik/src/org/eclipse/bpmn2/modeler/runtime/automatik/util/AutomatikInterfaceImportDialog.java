@@ -60,15 +60,15 @@ public class AutomatikInterfaceImportDialog extends DefaultSchemaImportDialog {
 		tableComposite.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,true,1,1));
 
 		Label label = new Label(tableComposite,SWT.NONE);
-		label.setText( Messages.JbpmInterfaceImportDialog_Available_Methods);
+		label.setText( Messages.AutomatikInterfaceImportDialog_Available_Methods);
 		label.setLayoutData(new GridData(SWT.LEFT,SWT.TOP,true,false,1,1));
 		
 		final Button selectAllButton = new Button(tableComposite, SWT.PUSH);
-		selectAllButton.setText(Messages.JbpmInterfaceImportDialog_Select_All);
+		selectAllButton.setText(Messages.AutomatikInterfaceImportDialog_Select_All);
 		selectAllButton.setLayoutData(new GridData(SWT.RIGHT,SWT.TOP,false,false,1,1));
 		
 		final Button selectNoneButton = new Button(tableComposite, SWT.PUSH);
-		selectNoneButton.setText(Messages.JbpmInterfaceImportDialog_Select_None);
+		selectNoneButton.setText(Messages.AutomatikInterfaceImportDialog_Select_None);
 		selectNoneButton.setLayoutData(new GridData(SWT.RIGHT,SWT.TOP,false,false,1,1));
 
 		methodsTable = CheckboxTableViewer.newCheckList(tableComposite, SWT.CHECK | SWT.BORDER);
@@ -95,7 +95,7 @@ public class AutomatikInterfaceImportDialog extends DefaultSchemaImportDialog {
 		});
 
 		final Button createVariablesbutton = new Button(contents, SWT.CHECK);
-		createVariablesbutton.setText(Messages.JbpmImportDialog_Create_Process_Variables_Label);
+		createVariablesbutton.setText(Messages.AutomatikImportDialog_Create_Process_Variables_Label);
 		createVariablesbutton.setSelection(createVariables);
 		createVariablesbutton.addSelectionListener(new SelectionAdapter() {
 

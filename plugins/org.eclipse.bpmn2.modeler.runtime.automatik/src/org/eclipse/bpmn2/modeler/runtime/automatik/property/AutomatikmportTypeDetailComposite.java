@@ -34,7 +34,7 @@ public class AutomatikmportTypeDetailComposite extends DefaultDetailComposite {
 			parent = getAttributesParent();
 		
 		final ImportType def = (ImportType)object;
-		String displayName = Messages.JbpmImportTypeDetailComposite_Title; //ModelUtil.getLabel(object, attribute);
+		String displayName = Messages.AutomatikImportTypeDetailComposite_Title; //ModelUtil.getLabel(object, attribute);
 		
 		AutomatikImportObjectEditor editor = new AutomatikImportObjectEditor(this,object,attribute);
 		editor.createControl(parent,displayName);

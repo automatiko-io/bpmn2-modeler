@@ -97,12 +97,12 @@ public class AutomatikDataAssociationDetailComposite extends DataAssociationDeta
 	    	
 	    	private String nameValidator(ItemAwareElement object, String name) {
 				if (!SyntaxCheckerUtils.isJavaIdentifier(name)) {
-					return Messages.JbpmDataAssociationDetailComposite_Name_Invalid;
+					return Messages.AutomatikDataAssociationDetailComposite_Name_Invalid;
 				}
 				if (AutomatikIoParametersDetailComposite.isCustomTaskIOParameter(object, name)) {
 					Activity activity = AutomatikIoParametersDetailComposite.findActivity(object);
 					String propertyTabLabel = ModelUtil.getLabel(activity);
-					return NLS.bind(Messages.JbpmDataAssociationDetailComposite_Name_Reserved,
+					return NLS.bind(Messages.AutomatikDataAssociationDetailComposite_Name_Reserved,
 							name, propertyTabLabel);
 				}
 				return null;
@@ -153,7 +153,7 @@ public class AutomatikDataAssociationDetailComposite extends DataAssociationDeta
 //		else if (activity instanceof ReceiveTask) {
 //			enabled = ((ReceiveTask)activity).getOperationRef()==null && ((ReceiveTask)activity).getMessageRef()==null;
 //		}
-//		else if (CustomTaskDescriptor.getDescriptor(activity) != null && JbpmIoParametersDetailComposite.isCustomTaskIOParameter((ItemAwareElement)be)) {
+//		else if (CustomTaskDescriptor.getDescriptor(activity) != null && AutomatikIoParametersDetailComposite.isCustomTaskIOParameter((ItemAwareElement)be)) {
 //			enabled = false;
 //		}
 //

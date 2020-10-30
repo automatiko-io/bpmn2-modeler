@@ -39,8 +39,8 @@ import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ImportType;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikActivityDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikCommonEventDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDataAssociationDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection.JbpmMessageDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection.JbpmMessageListComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection.AutomatikMessageDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection.AutomatikMessageListComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikExpressionDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikGatewayDetailComposite;
 import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikmportTypeDetailComposite;
@@ -68,7 +68,7 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 	public final static String AUTOMATIK_NAMESPACE = "https://automatik-platform.io"; //$NON-NLS-1$
 
 	/* (non-Javadoc)
-	 * Check if the given input file is a drools-generated (jBPM) process file.
+	 * Check if the given input file is a automatik-generated (jBPM) process file.
 	 * 
 	 * @see org.eclipse.bpmn2.modeler.core.IBpmn2RuntimeExtension#isContentForRuntime(org.eclipse.core.resources.IFile)
 	 */
@@ -100,8 +100,8 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 	        PropertiesCompositeFactory.register(ImportType.class, AutomatikmportTypeDetailComposite.class, targetRuntime);	        
 	        PropertiesCompositeFactory.register(ItemDefinition.class, AutomatikItemDefinitionListComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(ManualTask.class, AutomatikManualTaskDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(Message.class, JbpmMessageDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(Message.class, JbpmMessageListComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(Message.class, AutomatikMessageDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(Message.class, AutomatikMessageListComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(MultiInstanceLoopCharacteristics.class, AutomatikMultiInstanceDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(ReceiveTask.class, AutomatikReceiveTaskDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(ScriptTask.class, AutomatikScriptTaskDetailComposite.class, targetRuntime);

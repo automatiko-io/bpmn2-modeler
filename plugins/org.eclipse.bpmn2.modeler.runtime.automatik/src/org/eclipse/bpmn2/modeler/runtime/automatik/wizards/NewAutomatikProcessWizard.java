@@ -198,7 +198,7 @@ public class NewAutomatikProcessWizard extends Wizard implements INewWizard {
 			"	xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\"\n"+ //$NON-NLS-1$
 			"	xmlns:tns=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
 			"	xmlns=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
-			"	xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd https://automatik-platform.io drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd\"\n"+ //$NON-NLS-1$
+			"	xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd https://automatik-platform.io automatik.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd\"\n"+ //$NON-NLS-1$
 			"	id=\"Definition\"\n"+ //$NON-NLS-1$
 			"	expressionLanguage=\"http://www.mvel.org/2.0\"\n"+ //$NON-NLS-1$
 			"	targetNamespace=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$

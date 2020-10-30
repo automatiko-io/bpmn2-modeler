@@ -153,7 +153,7 @@ public class AutomatikModelUtil {
 				else {
 					if (recursive) {
 						Shell shell = Display.getDefault().getActiveShell();
-						MessageDialog.openError(shell, Messages.JbpmModelUtil_No_Process_Title, Messages.JbpmModelUtil_No_Process_Message);
+						MessageDialog.openError(shell, Messages.AutomatikModelUtil_No_Process_Title, Messages.AutomatikModelUtil_No_Process_Message);
 					}
 					return null;
 				}
@@ -166,9 +166,9 @@ public class AutomatikModelUtil {
 			if (className.equals(it.getName())) {
 				if (recursive) {
 					Shell shell = Display.getDefault().getActiveShell();
-					MessageDialog.openWarning(shell, Messages.JbpmModelUtil_Duplicate_Import_Title,
+					MessageDialog.openWarning(shell, Messages.AutomatikModelUtil_Duplicate_Import_Title,
 						NLS.bind(
-							Messages.JbpmModelUtil_Duplicate_Import_Message,className
+							Messages.AutomatikModelUtil_Duplicate_Import_Message,className
 						)
 					);
 				}

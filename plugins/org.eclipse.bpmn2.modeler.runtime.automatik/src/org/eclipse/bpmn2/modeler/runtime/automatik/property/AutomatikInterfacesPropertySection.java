@@ -40,46 +40,46 @@ public class AutomatikInterfacesPropertySection extends InterfacesPropertySectio
 
     @Override
     protected AbstractDetailComposite createSectionRoot() {
-        return new JbpmInterfacesSectionRoot(this);
+        return new AutomatikInterfacesSectionRoot(this);
     }
 
     @Override
 	public AbstractDetailComposite createSectionRoot(Composite parent, int style) {
-        return new JbpmInterfacesSectionRoot(parent,style);
+        return new AutomatikInterfacesSectionRoot(parent,style);
 	}
 
-	public class JbpmInterfacesSectionRoot extends InterfacesSectionRoot {
+	public class AutomatikInterfacesSectionRoot extends InterfacesSectionRoot {
 
-        public JbpmInterfacesSectionRoot(Composite parent, int style) {
+        public AutomatikInterfacesSectionRoot(Composite parent, int style) {
             super(parent, style);
         }
 
-        public JbpmInterfacesSectionRoot(AbstractBpmn2PropertySection section) {
+        public AutomatikInterfacesSectionRoot(AbstractBpmn2PropertySection section) {
             super(section);
         }
 
         @Override
         public void createBindings(EObject be) {
-            definedInterfacesTable = new JbpmDefinedInterfaceListComposite(this);
+            definedInterfacesTable = new AutomatikDefinedInterfaceListComposite(this);
             definedInterfacesTable.bindList(be);
         }
 
     }
 
-    private class JbpmDefinedInterfaceListComposite extends DefinedInterfaceListComposite {
+    private class AutomatikDefinedInterfaceListComposite extends DefinedInterfaceListComposite {
 
-        public JbpmDefinedInterfaceListComposite(Composite parent) {
+        public AutomatikDefinedInterfaceListComposite(Composite parent) {
             super(parent);
         }
 
         @Override
         public void bindList(EObject theobject) {
         	// TODO: push this up to super
-        	// this also requires that the JbpmImportDialog is moved to the core plugin
-        	// also JbpmModelUtil.ImportHandler
+        	// this also requires that the AutomatikImportDialog is moved to the core plugin
+        	// also AutomatikModelUtil.ImportHandler
             super.bindList(theobject);
             ImageDescriptor id = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/20/import.png"); //$NON-NLS-1$
-            Action importAction = new Action(Messages.JbpmInterfacePropertySection_Import_Action, id) {
+            Action importAction = new Action(Messages.AutomatikInterfacePropertySection_Import_Action, id) {
                 @Override
                 public void run() {
                     super.run();

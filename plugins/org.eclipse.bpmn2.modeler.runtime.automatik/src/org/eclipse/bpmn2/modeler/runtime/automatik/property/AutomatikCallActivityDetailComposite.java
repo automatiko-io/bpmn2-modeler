@@ -112,9 +112,9 @@ public class AutomatikCallActivityDetailComposite extends AutomatikActivityDetai
 							@Override
 							public String isValid(String newText) {
 								if (newText==null ||newText.isEmpty())
-									return Messages.JbpmCallActivityDetailComposite_Error_Empty;
+									return Messages.AutomatikCallActivityDetailComposite_Error_Empty;
 								if (!AutomatikModelUtil.isProcessId(newText))
-									return Messages.JbpmCallActivityDetailComposite_Error_Invalid;
+									return Messages.AutomatikCallActivityDetailComposite_Error_Invalid;
 								return null;
 							}
 							
@@ -123,8 +123,8 @@ public class AutomatikCallActivityDetailComposite extends AutomatikActivityDetai
 						String initialValue = ExtendedPropertiesProvider.getTextValue(object,feature);
 						InputDialog dialog = new InputDialog(
 								getShell(),
-								Messages.JbpmCallActivityDetailComposite_Title,
-								Messages.JbpmCallActivityDetailComposite_Message,
+								Messages.AutomatikCallActivityDetailComposite_Title,
+								Messages.AutomatikCallActivityDetailComposite_Message,
 								initialValue,
 								validator);
 						if (dialog.open()==Window.OK){

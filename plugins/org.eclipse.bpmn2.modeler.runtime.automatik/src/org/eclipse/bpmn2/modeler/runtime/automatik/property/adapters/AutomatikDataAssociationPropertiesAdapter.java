@@ -29,19 +29,19 @@ public class AutomatikDataAssociationPropertiesAdapter extends
     	EStructuralFeature ref;
     	
     	ref = Bpmn2Package.eINSTANCE.getDataAssociation_SourceRef();
-    	setFeatureDescriptor(ref, new JbpmSourceTargetFeatureDescriptor(this,object,ref) {
+    	setFeatureDescriptor(ref, new AutomatikSourceTargetFeatureDescriptor(this,object,ref) {
     		
     	});
 
 		ref = Bpmn2Package.eINSTANCE.getDataAssociation_TargetRef();
-    	setFeatureDescriptor(ref, new JbpmSourceTargetFeatureDescriptor(this,object,ref) {
+    	setFeatureDescriptor(ref, new AutomatikSourceTargetFeatureDescriptor(this,object,ref) {
     		
     	});
 	}
 
-	public class JbpmSourceTargetFeatureDescriptor extends SourceTargetFeatureDescriptor {
+	public class AutomatikSourceTargetFeatureDescriptor extends SourceTargetFeatureDescriptor {
 
-		public JbpmSourceTargetFeatureDescriptor(ExtendedPropertiesAdapter<DataAssociation> owner,
+		public AutomatikSourceTargetFeatureDescriptor(ExtendedPropertiesAdapter<DataAssociation> owner,
 				DataAssociation object, EStructuralFeature feature) {
 			super(owner, object, feature);
 		}

@@ -155,25 +155,25 @@ public class AutomatikDescriptionPropertySection extends DescriptionPropertySect
 
 	@Override
 	protected AbstractDetailComposite createSectionRoot() {
-		return new JbpmDescriptionPropertyComposite(this);
+		return new AutomatikDescriptionPropertyComposite(this);
 	}
 
 	@Override
 	public AbstractDetailComposite createSectionRoot(Composite parent, int style) {
-		return new JbpmDescriptionPropertyComposite(parent, style);
+		return new AutomatikDescriptionPropertyComposite(parent, style);
 	}
 
 	public AutomatikDescriptionPropertySection() {
 		super();
 	}
 
-	public class JbpmDescriptionPropertyComposite extends DescriptionDetailComposite {
+	public class AutomatikDescriptionPropertyComposite extends DescriptionDetailComposite {
 
-		public JbpmDescriptionPropertyComposite(AbstractBpmn2PropertySection section) {
+		public AutomatikDescriptionPropertyComposite(AbstractBpmn2PropertySection section) {
 			super(section);
 		}
 
-		public JbpmDescriptionPropertyComposite(Composite parent, int style) {
+		public AutomatikDescriptionPropertyComposite(Composite parent, int style) {
 			super(parent, style);
 		}
 
@@ -215,7 +215,7 @@ public class AutomatikDescriptionPropertySection extends DescriptionPropertySect
 				bindList(process, "documentation"); //$NON-NLS-1$
 				// bindAttribute(process, "adHoc");
 				// bindList(process, "properties"); // this has moved to
-				// JbpmDataItemsDetailComposite
+				// AutomatikDataItemsDetailComposite
 				// bindList(process, "laneSets"); // don't need this
 			}
 			if (be instanceof BaseElement) {
@@ -233,7 +233,7 @@ public class AutomatikDescriptionPropertySection extends DescriptionPropertySect
 		protected void bindMetaDataTable(final BaseElement be) {
 			metaDataTable = new MetaDataTable(this, be);
 			metaDataTable.bindList(be, ExtensionPackage.eINSTANCE.getDocumentRoot_MetaData());
-			metaDataTable.setTitle(Messages.JbpmDescriptionPropertySection_MetaData_Section_Title);
+			metaDataTable.setTitle(Messages.AutomatikDescriptionPropertySection_MetaData_Section_Title);
 
 		}
 	}

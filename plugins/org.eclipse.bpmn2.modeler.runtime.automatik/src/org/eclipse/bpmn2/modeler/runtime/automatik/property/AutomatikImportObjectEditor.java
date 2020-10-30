@@ -44,7 +44,7 @@ public class AutomatikImportObjectEditor extends ComboObjectEditor {
 	protected Hashtable<String, Object> getChoiceOfValues(EObject object, EStructuralFeature feature) {
 		Hashtable<String, Object> choices = new Hashtable<String, Object>();
 		// The object is either an Interface or ImportType, both types reference
-		// a Java implementation class which may be defined in either a drools <import>
+		// a Java implementation class which may be defined in either a automatik <import>
 		// or a BPMN2 <itemDefinition>.
 		TreeIterator<EObject> iter = definitions.eAllContents();
 		while (iter.hasNext()) {

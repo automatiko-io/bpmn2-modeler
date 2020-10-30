@@ -57,11 +57,11 @@ public class AutomatikScriptTaskDetailComposite extends AutomatikTaskDetailCompo
 			}
 			
 		};
-		scriptFormatEditor.createControl(getAttributesParent(),Messages.JbpmScriptTaskDetailComposite_Script_Language);
+		scriptFormatEditor.createControl(getAttributesParent(),Messages.AutomatikScriptTaskDetailComposite_Script_Language);
 
 		scriptEditor = new TextObjectEditor(this,be,be.eClass().getEStructuralFeature("script")); //$NON-NLS-1$
 		scriptEditor.createControl(getAttributesParent(),"Script"); //$NON-NLS-1$
 
-		bindAttribute(be,Messages.JbpmScriptTaskDetailComposite_8);
+		bindAttribute(be,Messages.AutomatikScriptTaskDetailComposite_8);
 	}
 }

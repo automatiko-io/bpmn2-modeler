@@ -71,7 +71,7 @@ public class AutomatikPropertyPropertiesAdapter extends PropertyPropertiesAdapte
 			
 			@Override
 			public String getLabel() {
-				return Messages.JbpmDataItemsDetailComposite_LocalVariablesTitle;
+				return Messages.AutomatikDataItemsDetailComposite_LocalVariablesTitle;
 			}
 		});
 

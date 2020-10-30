@@ -41,11 +41,7 @@ public class ExtensionResourceFactoryImpl extends ResourceFactoryImpl {
     	ExtensionResourceImpl result = new ExtensionResourceImpl(uri);
 
         result.getDefaultSaveOptions().put(XMLResource.OPTION_SAVE_TYPE_INFORMATION,
-        		// this is only a workaround to allow round-tripping with the jbpm web designer.
-        		// The Relationship elements which are used to manage simulation parameters in
-        		// the web designer are not yet implemented here. Each BPMN2 element should have
-        		// corresponding simulation parameter containers in the <relationship> extension
-        		// elements container. This still needs to be added to the jbpm extension model.
+   
                 new OnlyContainmentTypeInfo() {
 
 					@Override

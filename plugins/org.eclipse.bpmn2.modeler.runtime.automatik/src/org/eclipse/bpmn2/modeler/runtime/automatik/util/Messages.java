@@ -14,16 +14,16 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "org.eclipse.bpmn2.modeler.runtime.automatik.util.messages"; //$NON-NLS-1$
-	public static String JbpmImportDialog_Create_Process_Variables_Label;
-	public static String JbpmInterfaceImportDialog_Available_Methods;
-	public static String JbpmInterfaceImportDialog_Select_All;
-	public static String JbpmInterfaceImportDialog_Select_None;
-	public static String JbpmModelUtil_Duplicate_Import_Message;
-	public static String JbpmModelUtil_Duplicate_Import_Title;
-	public static String JbpmModelUtil_No_Process_Message;
-	public static String JbpmModelUtil_No_Process_Title;
-	public static String JbpmModelUtil_Scenario_Name;
-	public static String JbpmModelUtil_Simulation;
+	public static String AutomatikImportDialog_Create_Process_Variables_Label;
+	public static String AutomatikInterfaceImportDialog_Available_Methods;
+	public static String AutomatikInterfaceImportDialog_Select_All;
+	public static String AutomatikInterfaceImportDialog_Select_None;
+	public static String AutomatikModelUtil_Duplicate_Import_Message;
+	public static String AutomatikModelUtil_Duplicate_Import_Title;
+	public static String AutomatikModelUtil_No_Process_Message;
+	public static String AutomatikModelUtil_No_Process_Title;
+	public static String AutomatikModelUtil_Scenario_Name;
+	public static String AutomatikModelUtil_Simulation;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

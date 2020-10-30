@@ -42,18 +42,18 @@ public class AutomatikDefinitionsPropertySection extends DefinitionsPropertySect
 		return new AutomatikDefinitionsPropertyComposite(parent,style);
 	}
 	
-	public class JbpmMessageDetailComposite extends DefaultDetailComposite {
+	public class AutomatikMessageDetailComposite extends DefaultDetailComposite {
 
 		private AbstractPropertiesProvider propertiesProvider;
 
-		public JbpmMessageDetailComposite(Composite parent, int style) {
+		public AutomatikMessageDetailComposite(Composite parent, int style) {
 			super(parent, style);
 		}
 
 		/**
 		 * @param section
 		 */
-		public JbpmMessageDetailComposite(AbstractBpmn2PropertySection section) {
+		public AutomatikMessageDetailComposite(AbstractBpmn2PropertySection section) {
 			super(section);
 		}
 
@@ -82,18 +82,18 @@ public class AutomatikDefinitionsPropertySection extends DefinitionsPropertySect
 		}
 	}
 	
-	public class JbpmMessageListComposite extends DefaultListComposite {
+	public class AutomatikMessageListComposite extends DefaultListComposite {
 
-		public JbpmMessageListComposite(AbstractBpmn2PropertySection section, int style) {
+		public AutomatikMessageListComposite(AbstractBpmn2PropertySection section, int style) {
 			super(section, style);
 			// TODO Auto-generated constructor stub
 		}
 
-		public JbpmMessageListComposite(AbstractBpmn2PropertySection section) {
+		public AutomatikMessageListComposite(AbstractBpmn2PropertySection section) {
 			super(section, DEFAULT_STYLE);
 		}
 
-		public JbpmMessageListComposite(Composite parent, int style) {
+		public AutomatikMessageListComposite(Composite parent, int style) {
 			super(parent, DEFAULT_STYLE);
 		}
 		
@@ -102,7 +102,7 @@ public class AutomatikDefinitionsPropertySection extends DefinitionsPropertySect
 			if (columnProvider==null) {
 				columnProvider = new ListCompositeColumnProvider(this);
 				TableColumn tc = new TableColumn(object,Bpmn2Package.eINSTANCE.getBaseElement_Id());
-				tc.setHeaderText(Messages.JbpmDefinitionsPropertySection_Name); 
+				tc.setHeaderText(Messages.AutomatikDefinitionsPropertySection_Name); 
 				columnProvider.add(tc);
 				columnProvider.add(new TableColumn(object,Bpmn2Package.eINSTANCE.getMessage_ItemRef()));
 			}

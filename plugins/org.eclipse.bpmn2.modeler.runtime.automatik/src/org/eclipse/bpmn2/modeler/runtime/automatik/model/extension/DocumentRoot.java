@@ -122,7 +122,7 @@ public interface DocumentRoot extends org.eclipse.bpmn2.DocumentRoot {
 	 * @return the value of the '<em>Package Name</em>' attribute.
 	 * @see #setPackageName(String)
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage#getDocumentRoot_PackageName()
-	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.PackageNameType"
+	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.PackageNameType"
 	 *        extendedMetaData="kind='attribute' name='packageName' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -149,7 +149,7 @@ public interface DocumentRoot extends org.eclipse.bpmn2.DocumentRoot {
 	 * @return the value of the '<em>Priority</em>' attribute.
 	 * @see #setPriority(BigInteger)
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage#getDocumentRoot_Priority()
-	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.PriorityType"
+	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.PriorityType"
 	 *        extendedMetaData="kind='attribute' name='priority' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -176,7 +176,7 @@ public interface DocumentRoot extends org.eclipse.bpmn2.DocumentRoot {
 	 * @return the value of the '<em>Task Name</em>' attribute.
 	 * @see #setTaskName(String)
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage#getDocumentRoot_TaskName()
-	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.TaskNameType"
+	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.TaskNameType"
 	 *        extendedMetaData="kind='attribute' name='taskName' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -203,7 +203,7 @@ public interface DocumentRoot extends org.eclipse.bpmn2.DocumentRoot {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(String)
 	 * @see org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage#getDocumentRoot_Version()
-	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.VersionType"
+	 * @model dataType="org.eclipse.bpmn2.modeler.runtime.automatik.model.automatik.VersionType"
 	 *        extendedMetaData="kind='attribute' name='version' namespace='##targetNamespace'"
 	 * @generated
 	 */

@@ -58,7 +58,7 @@ public class AutomatikIoParametersDetailComposite extends IoParametersDetailComp
 				if (isModelObjectEnabled(ioSpecification.eClass(),dataInputsFeature)) {
 					dataInputsTable = new AutomatikIoParametersListComposite(this, be, ioSpecification, dataInputsFeature);
 					dataInputsTable.bindList(ioSpecification, dataInputsFeature);
-					dataInputsTable.setTitle(Messages.JbpmIoParametersDetailComposite_Input_Mapping_Title);
+					dataInputsTable.setTitle(Messages.AutomatikIoParametersDetailComposite_Input_Mapping_Title);
 				}
 			}
 			
@@ -67,7 +67,7 @@ public class AutomatikIoParametersDetailComposite extends IoParametersDetailComp
 				if (isModelObjectEnabled(ioSpecification.eClass(),dataOutputsFeature)) {
 					dataOutputsTable = new AutomatikIoParametersListComposite(this, be, ioSpecification, dataOutputsFeature);
 					dataOutputsTable.bindList(ioSpecification, dataOutputsFeature);
-					dataOutputsTable.setTitle(Messages.JbpmIoParametersDetailComposite_Output_Mapping_Title);
+					dataOutputsTable.setTitle(Messages.AutomatikIoParametersDetailComposite_Output_Mapping_Title);
 				}
 			}
 		}

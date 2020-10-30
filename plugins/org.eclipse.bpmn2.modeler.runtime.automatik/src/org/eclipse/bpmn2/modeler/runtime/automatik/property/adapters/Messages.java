@@ -14,9 +14,9 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.messages"; //$NON-NLS-1$
-	public static String JbpmGlobalTypePropertiesAdapter_Data_Type_Label;
-	public static String JbpmGlobalTypePropertiesAdapter_Label;
-	public static String JbpmGlobalTypePropertiesAdapter_Name;
+	public static String AutomatikGlobalTypePropertiesAdapter_Data_Type_Label;
+	public static String AutomatikGlobalTypePropertiesAdapter_Label;
+	public static String AutomatikGlobalTypePropertiesAdapter_Name;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

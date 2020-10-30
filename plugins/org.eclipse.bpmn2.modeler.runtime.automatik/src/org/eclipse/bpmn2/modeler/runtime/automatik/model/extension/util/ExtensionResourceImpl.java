@@ -533,7 +533,7 @@ public class ExtensionResourceImpl extends Bpmn2ModelerResourceImpl {
 					String uri = helper.getNamespaceURI(prefix);
 					if (XSI_URI.equals(uri)) {
 						value = attribs.getValue(i);
-						if (value!=null && value.startsWith("drools:") && value.contains("_._type"))
+						if (value!=null && value.startsWith("automatik:") && value.contains("_._type"))
 							value = value.replace("_._type", "");
 					}
 				}

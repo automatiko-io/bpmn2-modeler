@@ -5,15 +5,15 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             class="org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage"
-            genModel="model/drools.genmodel"
+            genModel="model/automatik.genmodel"
             uri="https://automatik-platform.io">
       </package>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated drools -->
+      <!-- @generated automatik -->
       <parser
-            type="drools"
+            type="automatik"
             class="org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.util.ExtensionResourceFactoryImpl"/>
    </extension>
 
@@ -853,10 +853,6 @@
 		</modelExtension>
 		
 		<!-- customized Receive Task -->
-		<!-- Looks like MessageId is not used by jBPM, even though it is referenced
-		     by /jbpm-bpmn2/src/main/java/org/jbpm/bpmn2/handler/ReceiveTaskHandler.java
-		     and /jbpm-bpmn2/src/main/java/org/jbpm/bpmn2/xml/ReceiveTaskHandler.java
-		     and /jbpm-bpmn2/src/main/java/org/jbpm/bpmn2/xml/XmlBPMNProcessDumper.java
 		<modelExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.modelExtension.receiveTask"
 			runtimeId="bpmn2.automatik"
@@ -1514,9 +1510,9 @@
          point="org.eclipse.ui.preferencePages">
       <page
             category="org.eclipse.bpmn2.modeler.BPMN2"
-            class="org.eclipse.bpmn2.modeler.runtime.automatik.preferences.JbpmPreferencePage"
+            class="org.eclipse.bpmn2.modeler.runtime.automatik.preferences.AutomatikPreferencePage"
             id="bpmn2.automatik.preferences"
-            name="%PREFERENCE_PAGE_JBPM"/>
+            name="%PREFERENCE_PAGE_AUTOMATIK"/>
    </extension>
 	
 </plugin>

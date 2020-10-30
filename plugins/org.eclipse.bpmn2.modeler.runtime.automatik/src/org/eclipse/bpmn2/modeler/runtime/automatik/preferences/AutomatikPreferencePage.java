@@ -20,13 +20,13 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 public class AutomatikPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 	
 	public final static String PREF_ENABLE_SIMULATION_PARAMS = "enable.simulation.params"; //$NON-NLS-1$
-	public final static String PREF_ENABLE_SIMULATION_PARAMS_LABEL = Messages.JbpmPreferencePage_Enable_Simulation;
+	public final static String PREF_ENABLE_SIMULATION_PARAMS_LABEL = Messages.AutomatikPreferencePage_Enable_Simulation;
 
 	public AutomatikPreferencePage() {
 		super(GRID);
 		Bpmn2Preferences.getInstance();
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		setDescription(Messages.JbpmPreferencePage_JBPM_Settings);
+		setDescription(Messages.AutomatikPreferencePage_JBPM_Settings);
 	}
 
 	@Override

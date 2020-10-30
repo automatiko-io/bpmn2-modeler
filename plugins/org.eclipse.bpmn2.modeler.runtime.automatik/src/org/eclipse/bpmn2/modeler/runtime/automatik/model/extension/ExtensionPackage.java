@@ -31,7 +31,7 @@ public interface ExtensionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "drools";
+	String eNAME = "automatik";
 
 	/**
 	 * The package namespace URI.
@@ -47,7 +47,7 @@ public interface ExtensionPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "drools";
+	String eNS_PREFIX = "automatik";
 
 	/**
 	 * The singleton instance of the package.
