@@ -21,8 +21,8 @@ import org.eclipse.bpmn2.modeler.core.validation.SyntaxCheckerUtils;
 import org.eclipse.bpmn2.modeler.core.validation.validators.AbstractBpmn2ElementValidator;
 import org.eclipse.bpmn2.modeler.core.validation.validators.BaseElementValidator;
 import org.eclipse.bpmn2.modeler.runtime.automatik.ProcessVariableNameChangeAdapter;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.util.JbpmModelUtil;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExternalProcess;
+import org.eclipse.bpmn2.modeler.runtime.automatik.util.AutomatikModelUtil;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.Messages;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -70,7 +70,7 @@ public class ProcessVariableNameValidator extends AbstractBpmn2ElementValidator<
 		}
 		else {
 			if (object instanceof Process || object instanceof ExternalProcess) {
-				if (!JbpmModelUtil.isProcessId(id)) {
+				if (!AutomatikModelUtil.isProcessId(id)) {
 					addStatus(object, featureName, Status.ERROR, Messages.ProcessVariableNameValidator_ID_Invalid, object.eClass().getName(), id);
 				}
 			}

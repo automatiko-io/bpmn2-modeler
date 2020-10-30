@@ -20,8 +20,8 @@ import org.eclipse.bpmn2.SubProcess;
 import org.eclipse.bpmn2.modeler.core.model.ModelDecorator;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil;
 import org.eclipse.bpmn2.modeler.core.validation.validators.AbstractBpmn2ElementValidator;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ExternalProcess;
-import org.eclipse.bpmn2.modeler.runtime.automatik.util.JbpmModelUtil;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExternalProcess;
+import org.eclipse.bpmn2.modeler.runtime.automatik.util.AutomatikModelUtil;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.IDiagramProfile;
 import org.eclipse.bpmn2.modeler.runtime.automatik.validation.Messages;
 import org.eclipse.core.runtime.IStatus;
@@ -69,7 +69,7 @@ public class CallActivityValidator extends AbstractBpmn2ElementValidator<CallAct
 //			}
 
 			boolean isVariable = false;
-			String var = JbpmModelUtil.getVariableReference(calledProcessId);
+			String var = AutomatikModelUtil.getVariableReference(calledProcessId);
 			if (var!=null) {
 				// get the Property instances (a.k.a. "local variables") of the containing Process or SubProcess
 				for (EObject p : ModelUtil.collectAncestorObjects(object, "properties", new Class[] {Process.class, SubProcess.class})) {  //$NON-NLS-1$
@@ -82,7 +82,7 @@ public class CallActivityValidator extends AbstractBpmn2ElementValidator<CallAct
 				if (!isVariable)
 					addStatus(object, Status.ERROR, Messages.CallActivityConstraint_Not_A_Process_Variable, calledProcessId);
 			}
-			else if (!JbpmModelUtil.isProcessId(calledProcessId))
+			else if (!AutomatikModelUtil.isProcessId(calledProcessId))
 				addStatus(object, Status.ERROR, Messages.CallActivityConstraint_Not_A_Process_ID, calledProcessId);
 		}
 		EStructuralFeature feature;

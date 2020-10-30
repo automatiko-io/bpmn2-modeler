@@ -196,12 +196,12 @@ public class NewAutomatikProcessWizard extends Wizard implements INewWizard {
 			"	xmlns:bpmndi=\"http://www.omg.org/spec/BPMN/20100524/DI\"\n"+ //$NON-NLS-1$
 			"	xmlns:dc=\"http://www.omg.org/spec/DD/20100524/DC\"\n"+ //$NON-NLS-1$
 			"	xmlns:di=\"http://www.omg.org/spec/DD/20100524/DI\"\n"+ //$NON-NLS-1$
-			"	xmlns:tns=\"http://www.jboss.org/drools\"\n"+ //$NON-NLS-1$
-			"	xmlns=\"http://www.jboss.org/drools\"\n"+ //$NON-NLS-1$
-			"	xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd\"\n"+ //$NON-NLS-1$
+			"	xmlns:tns=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
+			"	xmlns=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
+			"	xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd https://automatik-platform.io drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd\"\n"+ //$NON-NLS-1$
 			"	id=\"Definition\"\n"+ //$NON-NLS-1$
 			"	expressionLanguage=\"http://www.mvel.org/2.0\"\n"+ //$NON-NLS-1$
-			"	targetNamespace=\"http://www.jboss.org/drools\"\n"+ //$NON-NLS-1$
+			"	targetNamespace=\"https://automatik-platform.io\"\n"+ //$NON-NLS-1$
 			"	typeLanguage=\"http://www.java.com/javaTypes\">\n"+ //$NON-NLS-1$
 			"\n"+ //$NON-NLS-1$
 			"  <bpmn2:process processType=\"Public\" isExecutable=\"true\""+ //$NON-NLS-1$

@@ -35,26 +35,26 @@ import org.eclipse.bpmn2.modeler.core.LifecycleEvent.EventType;
 import org.eclipse.bpmn2.modeler.core.merrimac.clad.PropertiesCompositeFactory;
 import org.eclipse.bpmn2.modeler.core.runtime.TargetRuntime;
 import org.eclipse.bpmn2.modeler.core.utils.ModelUtil.Bpmn2DiagramType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.ImportType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmActivityDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmCommonEventDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDataAssociationDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection.JbpmMessageDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection.JbpmMessageListComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmExpressionDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmGatewayDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmImportTypeDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmInterfaceDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmItemDefinitionDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmItemDefinitionListComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmManualTaskDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmMultiInstanceDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmOperationDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmReceiveTaskDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmScriptTaskDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSendTaskDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSequenceFlowDetailComposite;
-import org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmTaskDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ImportType;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikActivityDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikCommonEventDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDataAssociationDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection.JbpmMessageDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection.JbpmMessageListComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikExpressionDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikGatewayDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikmportTypeDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikInterfaceDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikItemDefinitionDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikItemDefinitionListComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikManualTaskDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikMultiInstanceDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikOperationDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikReceiveTaskDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikScriptTaskDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikSendTaskDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikSequenceFlowDetailComposite;
+import org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikTaskDetailComposite;
 import org.eclipse.bpmn2.modeler.ui.AbstractBpmn2RuntimeExtension.RootElementParser;
 import org.eclipse.bpmn2.modeler.ui.wizards.FileService;
 import org.eclipse.emf.ecore.EObject;
@@ -65,7 +65,7 @@ import org.xml.sax.InputSource;
 public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 	
 	public final static String JBPM5_RUNTIME_ID = "bpmn2.automatik"; //$NON-NLS-1$
-	public final static String AUTOMATIK_NAMESPACE = "http://www.jboss.org/drools"; //$NON-NLS-1$
+	public final static String AUTOMATIK_NAMESPACE = "https://automatik-platform.io"; //$NON-NLS-1$
 
 	/* (non-Javadoc)
 	 * Check if the given input file is a drools-generated (jBPM) process file.
@@ -92,26 +92,26 @@ public class AutomatikRuntimeExtension implements IBpmn2RuntimeExtension {
 
 		if (event.eventType == EventType.EDITOR_INITIALIZED) {
 			// Register all of our Property Tab Detail overrides here. 
-			PropertiesCompositeFactory.register(Activity.class, JbpmActivityDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(DataInput.class, JbpmDataAssociationDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(DataOutput.class, JbpmDataAssociationDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(Event.class, JbpmCommonEventDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(Gateway.class, JbpmGatewayDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(ImportType.class, JbpmImportTypeDetailComposite.class, targetRuntime);	        
-	        PropertiesCompositeFactory.register(ItemDefinition.class, JbpmItemDefinitionListComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(ManualTask.class, JbpmManualTaskDetailComposite.class, targetRuntime);
+			PropertiesCompositeFactory.register(Activity.class, AutomatikActivityDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(DataInput.class, AutomatikDataAssociationDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(DataOutput.class, AutomatikDataAssociationDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(Event.class, AutomatikCommonEventDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(Gateway.class, AutomatikGatewayDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(ImportType.class, AutomatikmportTypeDetailComposite.class, targetRuntime);	        
+	        PropertiesCompositeFactory.register(ItemDefinition.class, AutomatikItemDefinitionListComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(ManualTask.class, AutomatikManualTaskDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(Message.class, JbpmMessageDetailComposite.class, targetRuntime);
 	        PropertiesCompositeFactory.register(Message.class, JbpmMessageListComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(MultiInstanceLoopCharacteristics.class, JbpmMultiInstanceDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(ReceiveTask.class, JbpmReceiveTaskDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(ScriptTask.class, JbpmScriptTaskDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(SendTask.class, JbpmSendTaskDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(SequenceFlow.class, JbpmSequenceFlowDetailComposite.class, targetRuntime);
-	        PropertiesCompositeFactory.register(Task.class, JbpmTaskDetailComposite.class, targetRuntime);
-			PropertiesCompositeFactory.register(ItemDefinition.class, JbpmItemDefinitionDetailComposite.class, targetRuntime);
-			PropertiesCompositeFactory.register(Interface.class, JbpmInterfaceDetailComposite.class, targetRuntime);
-			PropertiesCompositeFactory.register(Operation.class, JbpmOperationDetailComposite.class, targetRuntime);
-			PropertiesCompositeFactory.register(Expression.class, JbpmExpressionDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(MultiInstanceLoopCharacteristics.class, AutomatikMultiInstanceDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(ReceiveTask.class, AutomatikReceiveTaskDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(ScriptTask.class, AutomatikScriptTaskDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(SendTask.class, AutomatikSendTaskDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(SequenceFlow.class, AutomatikSequenceFlowDetailComposite.class, targetRuntime);
+	        PropertiesCompositeFactory.register(Task.class, AutomatikTaskDetailComposite.class, targetRuntime);
+			PropertiesCompositeFactory.register(ItemDefinition.class, AutomatikItemDefinitionDetailComposite.class, targetRuntime);
+			PropertiesCompositeFactory.register(Interface.class, AutomatikInterfaceDetailComposite.class, targetRuntime);
+			PropertiesCompositeFactory.register(Operation.class, AutomatikOperationDetailComposite.class, targetRuntime);
+			PropertiesCompositeFactory.register(Expression.class, AutomatikExpressionDetailComposite.class, targetRuntime);
 		}
 		else if (event.eventType == EventType.BUSINESSOBJECT_CREATED) {
 			EObject object = (EObject) event.target;

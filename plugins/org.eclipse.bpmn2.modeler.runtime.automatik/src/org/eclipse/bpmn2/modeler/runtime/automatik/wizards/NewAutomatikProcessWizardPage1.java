@@ -14,7 +14,7 @@ import org.eclipse.bpmn2.modeler.core.preferences.Bpmn2Preferences;
 import org.eclipse.bpmn2.modeler.core.runtime.TargetRuntime;
 import org.eclipse.bpmn2.modeler.core.validation.SyntaxCheckerUtils;
 import org.eclipse.bpmn2.modeler.runtime.automatik.AutomatikRuntimeExtension;
-import org.eclipse.bpmn2.modeler.runtime.automatik.util.JbpmModelUtil;
+import org.eclipse.bpmn2.modeler.runtime.automatik.util.AutomatikModelUtil;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;

@@ -4,9 +4,9 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            class="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage"
+            class="org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage"
             genModel="model/drools.genmodel"
-            uri="http://www.jboss.org/drools">
+            uri="https://automatik-platform.io">
       </package>
    </extension>
 
@@ -14,19 +14,19 @@
       <!-- @generated drools -->
       <parser
             type="drools"
-            class="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.util.DroolsResourceFactoryImpl"/>
+            class="org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.util.ExtensionResourceFactoryImpl"/>
    </extension>
 
 	<extension point="org.eclipse.bpmn2.modeler.runtime">
-		<runtime name="%runtime.name" versions="5.1,5.2,5.3"
+		<runtime name="%runtime.name" versions="1"
 			id="bpmn2.automatik"
 			class="org.eclipse.bpmn2.modeler.runtime.automatik.AutomatikRuntimeExtension"
 			description="%runtime.description">
 		</runtime>
 
 		<model runtimeId="bpmn2.automatik"
-			uri="http://www.jboss.org/drools"
-			resourceFactory="org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.util.DroolsResourceFactoryImpl">
+			uri="https://automatik-platform.io"
+			resourceFactory="org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.util.ExtensionResourceFactoryImpl">
 		</model>
 
 <!-- Property Tabs -->
@@ -34,14 +34,14 @@
 		<propertyTab
 			id="bpmn2.automatik.description.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDescriptionPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDescriptionPropertySection"
 			label="%propertyTab.label.General">
 		</propertyTab>
 
 		<propertyTab
 			id="bpmn2.automatik.diagram.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.process.diagram.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmProcessDiagramPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikProcessDiagramPropertySection"
 			type="org.eclipse.bpmn2.Process"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
 			label="%propertyTab.label.Process">
@@ -51,7 +51,7 @@
 			id="bpmn2.automatik.interfaces.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.interfaces.tab"
 			afterTab="org.eclipse.bpmn2.modeler.process.diagram.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmInterfacesPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikInterfacesPropertySection"
 			label="%propertyTab.label.Interfaces">
 		</propertyTab>
 
@@ -59,7 +59,7 @@
 			id="bpmn2.automatik.interface.details.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.interface.details.tab"
 			afterTab="org.eclipse.bpmn2.modeler.process.diagram.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmInterfacePropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikInterfacePropertySection"
 			label="%propertyTab.label.Interface">
 		</propertyTab>
 
@@ -67,7 +67,7 @@
 			id="bpmn2.automatik.definitions.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.definitions.tab"
 			afterTab="org.eclipse.bpmn2.modeler.interfaces.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDefinitionsPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDefinitionsPropertySection"
 			type="org.eclipse.bpmn2.Definitions"
 			label="%propertyTab.label.Definitions">
 		</propertyTab>
@@ -75,7 +75,7 @@
 		<propertyTab
 			id="bpmn2.automatik.dataitems.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.dataitems.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmDataItemsPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikDataItemsPropertySection"
 			label="%propertyTab.label.DataItems">
 		</propertyTab>
 
@@ -83,7 +83,7 @@
 			id="bpmn2.automatik.customTask.tab"
 			replaceTab="bpmn2.automatik.task.tab org.eclipse.bpmn2.modeler.task.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmCustomTaskPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikCustomTaskPropertySection"
 			type="org.eclipse.bpmn2.Task"
 			label="%propertyTab.label.CustomTask">
 		</propertyTab>
@@ -92,7 +92,7 @@
 			id="bpmn2.automatik.task.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.task.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmTaskPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikTaskPropertySection"
 			type="org.eclipse.bpmn2.Task"
 			label="%propertyTab.label.Task">
 		</propertyTab>
@@ -101,7 +101,7 @@
 			id="bpmn2.automatik.userTask.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.userTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmUserTaskPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikUserTaskPropertySection"
 			type="org.eclipse.bpmn2.UserTask"
 			label="%propertyTab.label.UserTask">
 		</propertyTab>
@@ -110,7 +110,7 @@
 			id="bpmn2.automatik.businessRuleTask.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.businessRuleTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmBusinessRuleTaskPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikBusinessRuleTaskPropertySection"
 			type="org.eclipse.bpmn2.BusinessRuleTask"
 			label="%propertyTab.label.BusinessRuleTask">
 		</propertyTab>
@@ -119,7 +119,7 @@
 			id="bpmn2.automatik.callActivity.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.callActivity.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmCallActivityPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikCallActivityPropertySection"
 			type="org.eclipse.bpmn2.CallActivity"
 			label="%propertyTab.label.CallActivity">
 		</propertyTab>
@@ -128,7 +128,7 @@
 			id="bpmn2.automatik.SubProcess.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.subProcess.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSubProcessPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikSubProcessPropertySection"
 			type="org.eclipse.bpmn2.SubProcess"
 			label="%propertyTab.label.SubProcess">
 		</propertyTab>
@@ -137,7 +137,7 @@
 			id="bpmn2.automatik.AdHocSubProcess.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.adHocSubProcess.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmAdHocSubProcessPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikAdHocSubProcessPropertySection"
 			type="org.eclipse.bpmn2.AdHocSubProcess"
 			label="%propertyTab.label.AdHocSubProcess">
 		</propertyTab>
@@ -146,7 +146,7 @@
 	        id="bpmn2.automatik.scriptTask.tab"
 	        replaceTab="org.eclipse.bpmn2.modeler.scriptTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmScriptTaskPropertySection"
+		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikScriptTaskPropertySection"
 		    type="org.eclipse.bpmn2.ScriptTask"
 		    label="%propertyTab.label.ScriptTask">
 		</propertyTab>
@@ -155,7 +155,7 @@
 	        id="bpmn2.automatik.serviceTask.tab"
 	        replaceTab="org.eclipse.bpmn2.modeler.serviceTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmServiceTaskPropertySection"
+		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikServiceTaskPropertySection"
 		    type="org.eclipse.bpmn2.ServiceTask"
 		    label="%propertyTab.label.ServiceTask">
 		</propertyTab>
@@ -164,7 +164,7 @@
 	        id="bpmn2.automatik.receiveTask.tab"
 	        replaceTab="org.eclipse.bpmn2.modeler.receiveTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmReceiveTaskPropertySection"
+		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikReceiveTaskPropertySection"
 		    type="org.eclipse.bpmn2.ReceiveTask"
 	        label="%propertyTab.label.ReceiveTask">
 		</propertyTab>
@@ -173,7 +173,7 @@
 	        id="bpmn2.automatik.sendTask.tab"
 	        replaceTab="org.eclipse.bpmn2.modeler.sendTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSendTaskPropertySection"
+		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikSendTaskPropertySection"
 		    type="org.eclipse.bpmn2.SendTask"
 	        label="%propertyTab.label.SendTask">
 		</propertyTab>
@@ -182,7 +182,7 @@
 	        id="bpmn2.automatik.manualTask.tab"
 	        replaceTab="org.eclipse.bpmn2.modeler.manualTask.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmManualTaskPropertySection"
+		    class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikManualTaskPropertySection"
 		    type="org.eclipse.bpmn2.ManualTask"
 	        label="%propertyTab.label.ManualTask">
 		</propertyTab>
@@ -191,7 +191,7 @@
 			id="bpmn2.automatik.sequenceflow.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.sequenceflow.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmSequenceFlowPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikSequenceFlowPropertySection"
 			type="org.eclipse.bpmn2.SequenceFlow"
 			label="%propertyTab.label.SequenceFlow">
 		</propertyTab>
@@ -200,7 +200,7 @@
 			id="bpmn2.automatik.activitiy.io.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.activity.io.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmIoParametersPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikIoParametersPropertySection"
 			label="%propertyTab.label.IOParameters">
 		</propertyTab>
 
@@ -208,7 +208,7 @@
 			id="bpmn2.automatik.commonEvent.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.commonEvent.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmCommonEventPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikCommonEventPropertySection"
 			type="org.eclipse.bpmn2.Event"
 			label="%propertyTab.label.Event">
 		</propertyTab>
@@ -217,7 +217,7 @@
 			id="bpmn2.automatik.gateway.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.gateway.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmGatewayPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikGatewayPropertySection"
 			type="org.eclipse.bpmn2.Gateway"
 			label="%propertyTab.label.Gateway">
 		</propertyTab>
@@ -226,7 +226,7 @@
 			id="bpmn2.automatik.group.tab"
 			replaceTab="org.eclipse.bpmn2.modeler.group.tab"
 			afterTab="org.eclipse.bpmn2.modeler.description.tab"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.JbpmGroupPropertySection"
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.AutomatikGroupPropertySection"
 			features="categoryValueRef"
 			type="org.eclipse.bpmn2.Group"
 			label="%propertyTab.label.Group">
@@ -238,70 +238,70 @@
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.Property"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.Property"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmPropertyPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikPropertyPropertiesAdapter">
 		</propertyExtension>
 		
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.dataInputAssociation"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.DataInputAssociation"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmDataAssociationPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikDataAssociationPropertiesAdapter">
 		</propertyExtension>
 		
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.dataOutputAssociation"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.DataOutputAssociation"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmDataAssociationPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikDataAssociationPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.DataInput"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.DataInput"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmDataInputPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikDataInputPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.DataOutput"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.DataOutput"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmDataOutputPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikDataOutputPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.exclusiveGateway"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ExclusiveGateway"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmGatewayPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikGatewayPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.inclusiveGateway"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.InclusiveGateway"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmGatewayPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikGatewayPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.eventBasedGateway"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.EventBasedGateway"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmGatewayPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikGatewayPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.parallelGateway"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ParallelGateway"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmGatewayPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikGatewayPropertiesAdapter">
 		</propertyExtension>
 		
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.CategoryValue"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.CategoryValue"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmCategoryValuePropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikCategoryValuePropertiesAdapter">
 		</propertyExtension>
 		
 		<!-- Things that have ItemDefinition references (data types) need to include the java native types in combo boxes and such -->
@@ -310,56 +310,56 @@
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.CorrelationProperty"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.CorrelationProperty"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmCorrelationPropertyPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikCorrelationPropertyPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.Error"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.Error"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmErrorPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikErrorPropertiesAdapter">
 		</propertyExtension>
 		
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.Escalation"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.Escalation"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmEscalationPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikEscalationPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.Message"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.Message"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmMessagePropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikMessagePropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.ResourceParameter"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ResourceParameter"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmResourceParameterPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikResourceParameterPropertiesAdapter">
 		</propertyExtension>
 
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.Signal"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.Signal"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmSignalPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikSignalPropertiesAdapter">
 		</propertyExtension>
 		
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.MultiInstanceLoopCharacteristics"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.MultiInstanceLoopCharacteristics"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmMultiInstanceLoopCharacteristicsPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikMultiInstanceLoopCharacteristicsPropertiesAdapter">
 		</propertyExtension>
 		
 		<propertyExtension
 			id="org.eclipse.bpmn2.modeler.runtime.automatik.propertyExtension.SubProcess"
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.SubProcess"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.JbpmSubProcessPropertiesAdapter">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.property.adapters.AutomatikSubProcessPropertiesAdapter">
 		</propertyExtension>
 		
 <!-- Graphiti Feature Container Overrides -->
@@ -367,109 +367,109 @@
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.TimerEventDefinition"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmTimerEventDefinitionFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikTimerEventDefinitionFeatureContainer">
 		</featureContainer>
 		
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.TerminateEventDefinition"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmTerminateEventDefinitionFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikTerminateEventDefinitionFeatureContainer">
 		</featureContainer>
 		
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.SignalEventDefinition"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmSignalEventDefinitionFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikSignalEventDefinitionFeatureContainer">
 		</featureContainer>
 		
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ErrorEventDefinition"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmErrorEventDefinitionFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikErrorEventDefinitionFeatureContainer">
 		</featureContainer>
 				
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.StartEvent"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmStartEventFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikStartEventFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.Task"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.UserTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmUserTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikUserTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.SendTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmSendTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikSendTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ReceiveTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmReceiveTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikReceiveTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ManualTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmManualTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikManualTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ServiceTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmServiceTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikServiceTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.BusinessRuleTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmBusinessRuleTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikBusinessRuleTaskFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.ScriptTask"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmScriptTaskFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikScriptTaskFeatureContainer">
 		</featureContainer>
 				
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.SequenceFlow"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmSequenceFlowFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikSequenceFlowFeatureContainer">
 		</featureContainer>
 
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.EndEvent"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmEndEventFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikEndEventFeatureContainer">
 		</featureContainer>
 				
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.IntermediateCatchEvent"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmIntermediateCatchEventFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikIntermediateCatchEventFeatureContainer">
 		</featureContainer>
 				
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.IntermediateThrowEvent"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmIntermediateThrowEventFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikIntermediateThrowEventFeatureContainer">
 		</featureContainer>
 				
 		<featureContainer
 			runtimeId="bpmn2.automatik"
 			type="org.eclipse.bpmn2.BoundaryEvent"
-			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.JbpmBoundaryEventFeatureContainer">
+			class="org.eclipse.bpmn2.modeler.runtime.automatik.features.AutomatikBoundaryEventFeatureContainer">
 		</featureContainer>
 		
 <!-- BPMN Model Element Extensions -->
@@ -1304,7 +1304,7 @@
             <!-- Live Validation Constraints -->
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Live"
                   name="Definitions"
@@ -1317,7 +1317,7 @@
             <!-- Batch Validation Constraints -->
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Process"
@@ -1328,7 +1328,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Signal"
@@ -1339,7 +1339,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Escalation"
@@ -1350,7 +1350,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Data Input Association"
@@ -1361,7 +1361,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Data Output Association"
@@ -1372,7 +1372,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Interface"
@@ -1384,7 +1384,7 @@
             <!-- Some DataInputs in UserTasks do not require a Data Type (ItemSubjectRef) -->
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Data Input"
@@ -1420,7 +1420,7 @@
             <!-- Batch Validation Constraints -->
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Business Rule Task"
@@ -1431,7 +1431,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="User Task"
@@ -1442,7 +1442,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Call Activity"
@@ -1453,7 +1453,7 @@
             </constraint>
             <constraint
                   lang="Java"
-                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.JbpmModelConstraint"
+                  class="org.eclipse.bpmn2.modeler.runtime.automatik.validation.AutomatikModelConstraint"
                   severity="ERROR"
                   mode="Batch"
                   name="Gateway"

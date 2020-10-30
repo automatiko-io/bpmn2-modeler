@@ -16,10 +16,10 @@ package org.eclipse.bpmn2.modeler.runtime.automatik;
 import org.eclipse.bpmn2.BaseElement;
 import org.eclipse.bpmn2.modeler.core.adapters.IExtensionValueAdapter;
 import org.eclipse.bpmn2.modeler.core.model.ModelDecorator;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsFactory;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.DroolsPackage;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaDataType;
-import org.eclipse.bpmn2.modeler.runtime.automatik.model.drools.MetaValueType;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionFactory;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.ExtensionPackage;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.MetaDataType;
+import org.eclipse.bpmn2.modeler.runtime.automatik.model.extension.MetaValueType;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
@@ -89,7 +89,7 @@ public class MetaDataTypeAdapter extends AdapterImpl implements IExtensionValueA
 				if (value!=null) {
 					MetaValueType metaValue = metaData.getMetaValue();
 					if (metaValue==null) {
-						metaValue = DroolsFactory.eINSTANCE.createMetaValueType();
+						metaValue = ExtensionFactory.eINSTANCE.createMetaValueType();
 					}
 					metaValue.setValue(value);
 					metaData.setMetaValue(metaValue);
@@ -98,14 +98,14 @@ public class MetaDataTypeAdapter extends AdapterImpl implements IExtensionValueA
 			}
 		}
 		
-		MetaDataType metaData = DroolsFactory.eINSTANCE.createMetaDataType();
+		MetaDataType metaData = ExtensionFactory.eINSTANCE.createMetaDataType();
 		metaData.setName(name);
-		MetaValueType metaValue = DroolsFactory.eINSTANCE.createMetaValueType();
+		MetaValueType metaValue = ExtensionFactory.eINSTANCE.createMetaValueType();
 		metaValue.setValue(value);
 		metaData.setMetaValue(metaValue);
 		Resource resource = element.eResource();
 		ModelDecorator.addExtensionAttributeValue(resource, element,
-				DroolsPackage.eINSTANCE.getDocumentRoot_MetaData(), metaData);
+				ExtensionPackage.eINSTANCE.getDocumentRoot_MetaData(), metaData);
 		return metaData;
 	}
 }
