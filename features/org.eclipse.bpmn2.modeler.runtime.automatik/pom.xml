@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.eclipse.bpmn2.modeler.features</groupId>
 		<artifactId>org.eclipse.bpmn2.modeler.features.parent</artifactId>
-		<version>2.0.0</version>
+		<version>2.0.2</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 

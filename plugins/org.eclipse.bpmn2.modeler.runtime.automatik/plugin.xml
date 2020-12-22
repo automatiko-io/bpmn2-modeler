@@ -1072,9 +1072,6 @@
 			<enable object="Operation" feature="extensionValues"/>
 			<enable object="Operation" feature="id"/>
 			<enable object="Operation" feature="name"/>
-			<enable object="Operation" feature="inMessageRef"/>
-			<enable object="Operation" feature="outMessageRef"/>
-			<enable object="Operation" feature="errorRefs"/>
 			<enable object="ParallelGateway" feature="gatewayDirection"/>
 			<enable object="ParallelGateway" feature="name"/>
 			<enable object="Process" feature="adHoc"/>
@@ -1131,6 +1128,9 @@
 			<enable object="StartEvent" feature="name"/>
 			<enable object="StartEvent" feature="isInterrupting"/>
 			<enable object="StartEvent" feature="eventDefinitions"/>
+			<enable object="StartEvent" feature="dataOutputs"/>
+			<enable object="StartEvent" feature="dataOutputAssociations"/>
+			<enable object="StartEvent" feature="ioSpecification"/>
 			<enable object="SubProcess" feature="flowElements"/>
 			<enable object="SubProcess" feature="isForCompensation"/>
 			<enable object="SubProcess" feature="triggeredByEvent"/>
@@ -1212,6 +1212,8 @@
 			</category>
 			<category id="bpmn2.automatik.toolpalette.full.DataObjects" name="%category.name.13">
 				<tool name="%tool.name.52" object="DataObject"/>
+				<tool name="%tool.name.83" object="DataInput"/>
+				<tool name="%tool.name.84" object="DataOutput"/>
 			</category>
 			<category id="bpmn2.automatik.toolpalette.full.EndEvents" name="%category.name.14">
 <!--				<tool name="%tool.name.53" object="EndEvent+CancelEventDefinition" icon="CancelEndEvent.png"/> -->
