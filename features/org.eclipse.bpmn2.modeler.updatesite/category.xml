@@ -6,7 +6,7 @@
    <feature url="features/org.eclipse.bpmn2.modeler_0.0.0.jar" id="org.eclipse.bpmn2.modeler" version="0.0.0">
       <category name="Eclipse BPMN2 Modeler"/>
    </feature>
-   <feature url="features/org.eclipse.bpmn2.modeler.runtime.automatik_0.0.0.jar" id="org.eclipse.bpmn2.modeler.runtime.automatik" version="0.0.0">
+   <feature url="features/org.eclipse.bpmn2.modeler.runtime.automatiko_0.0.0.jar" id="org.eclipse.bpmn2.modeler.runtime.automatiko" version="0.0.0">
       <category name="Eclipse BPMN2 Modeler"/>
    </feature>
    <feature url="features/org.eclipse.bpmn2.modeler.examples_0.0.0.jar" id="org.eclipse.bpmn2.modeler.examples" version="0.0.0">
@@ -15,7 +15,7 @@
    <feature url="features/org.eclipse.bpmn2.modeler.source_0.0.0.jar" id="org.eclipse.bpmn2.modeler.source" version="0.0.0">
       <category name="Eclipse BPMN2 Modeler Sources"/>
    </feature>
-   <feature url="features/org.eclipse.bpmn2.modeler.runtime.automatik.source_0.0.0.jar" id="org.eclipse.bpmn2.modeler.runtime.automatik.source" version="0.0.0">
+   <feature url="features/org.eclipse.bpmn2.modeler.runtime.automatiko.source_0.0.0.jar" id="org.eclipse.bpmn2.modeler.runtime.automatiko.source" version="0.0.0">
       <category name="Eclipse BPMN2 Modeler Sources"/>
    </feature>
    <feature url="features/org.eclipse.bpmn2.modeler.examples.source_0.0.0.jar" id="org.eclipse.bpmn2.modeler.examples.source" version="0.0.0">

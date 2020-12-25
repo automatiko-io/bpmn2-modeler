@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.bpmn2.modeler.runtime.automatiko"
+      label="BPMN2 Modeler - Automatiko Runtime Extension Feature"
+      version="2.0.0"
+      provider-name="%providerName">
+
+   <description url="https://automatiko.io/">
+      Extension plug-in that customizes BPMN2 Modeler behavior for the Automatiko Target Runtime.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="license.html">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.bpmn2.modeler.core"/>
+      <import plugin="org.eclipse.bpmn2.modeler.ui"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.bpmn2.modeler.runtime.automatiko"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
