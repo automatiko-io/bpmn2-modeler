@@ -12,11 +12,15 @@
  ******************************************************************************/
 package org.eclipse.bpmn2.modeler.core.features.containers.lane;
 
+import java.util.List;
+
 import org.eclipse.bpmn2.Lane;
 import org.eclipse.bpmn2.modeler.core.features.GraphitiConstants;
 import org.eclipse.bpmn2.modeler.core.features.containers.AbstractResizeContainerFeature;
 import org.eclipse.bpmn2.modeler.core.utils.BusinessObjectUtil;
 import org.eclipse.bpmn2.modeler.core.utils.FeatureSupport;
+import org.eclipse.bpmn2.modeler.core.utils.GraphicsUtil;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.graphiti.features.IFeatureProvider;
 import org.eclipse.graphiti.features.IResizeShapeFeature;
 import org.eclipse.graphiti.features.context.IResizeShapeContext;
@@ -233,26 +237,40 @@ public class ResizeLaneFeature extends AbstractResizeContainerFeature {
 		}
 	}
 	
+	/**
+	 * This method calculates the minimum size of a container (pool or lane) 
+	 * and avoids shrinking the container if child elements are hidden
+	 */
 	@Override
 	protected void preResizeShape(IResizeShapeContext context) {
 		super.preResizeShape(context);
-		// TODO: figure out an algorithm to resize lanes so that children
-		// are always visible
-//		List<PictogramElement> children = FeatureSupport.getPoolOrLaneChildren((ContainerShape)context.getShape());
-//		Rectangle bounds = GraphicsUtil.getBoundingRectangle(children);
-//		int direction = 0;
-//		if (bounds.x < context.getX()) {
-//			((ResizeShapeContext)context).setX(bounds.x);
-//		}
-//		if (bounds.y < context.getY()) {
-//			((ResizeShapeContext)context).setY(bounds.y);
-//		}
-//		if (bounds.x + bounds.width > context.getWidth()) {
-//			((ResizeShapeContext)context).setWidth(bounds.x + bounds.width);
-//		}
-//		if (bounds.y + bounds.height > context.getHeight()) {
-//			((ResizeShapeContext)context).setHeight(bounds.y + bounds.height);
-//		}
+		List<PictogramElement> children = FeatureSupport.getPoolOrLaneChildren((ContainerShape)context.getShape());
+		Rectangle bounds = GraphicsUtil.getBoundingRectangle(children);
+		
+		// create an offset of 10px
+		if (bounds.x>10) {
+			bounds.x=bounds.x-10;
+		}
+		if (bounds.y>10) {
+			bounds.y=bounds.y-10;
+		}
+		bounds.width=bounds.width+20;
+		bounds.height=bounds.height+20;
+		
+		// check if the desired dimension is possible
+		if (bounds.x < context.getX()) {
+			((ResizeShapeContext)context).setX(bounds.x);
+		}
+		if (bounds.y < context.getY()) {
+			// TODO this is not yet working correctly
+			((ResizeShapeContext)context).setY(bounds.y);
+		}
+		if (bounds.x + bounds.width > context.getWidth()) {
+			((ResizeShapeContext)context).setWidth(bounds.x + bounds.width);
+		}
+		if (bounds.y + bounds.height > context.getHeight()) {
+			((ResizeShapeContext)context).setHeight(bounds.y + bounds.height);
+		}
 	}
 	
 	private ContainerShape getLowestLane(ContainerShape root, boolean useFirstLane) {

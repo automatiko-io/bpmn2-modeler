@@ -797,7 +797,42 @@ public class GraphicsUtil {
 		return lx-dist <= x && x <= lx+dist && ly-dist <= y && y <= ly+dist;
 	}
 
+	/**
+	 * This method computes a bounding rectangle around a group of PictorgramElements 
+	 * 
+	 * @param pes
+	 * @return
+	 */
 	public static Rectangle getBoundingRectangle(List<? extends PictogramElement> pes) {
+		int xMin = Integer.MAX_VALUE;
+		int yMin = Integer.MAX_VALUE;
+		int xMax = Integer.MIN_VALUE;
+		int yMax = Integer.MIN_VALUE;
+		
+		for (PictogramElement pe : pes) {
+			if (pe instanceof Shape) {
+				GraphicsAlgorithm peGa = pe.getGraphicsAlgorithm();
+				IDimension size = calculateSize(pe);
+				if (peGa.getX()<xMin)
+					xMin = peGa.getX();
+				if (peGa.getY()<yMin)
+					yMin = peGa.getY();
+				if (peGa.getX() + size.getWidth()>xMax)
+					xMax = peGa.getX() + size.getWidth();
+				if (peGa.getY() + size.getHeight()>yMax)
+					yMax = peGa.getY() + size.getHeight();
+			}
+		}
+		return new Rectangle(xMin, yMin, xMax-xMin, yMax-yMin);
+	}
+	
+	/**
+	 * This method computes a bounding rectangle around a group of PictorgramElements with absolute 
+	 * x,y coordinates relative to the Diagram
+	 * @param pes
+	 * @return
+	 */
+	public static Rectangle getBoundingRectangleAbsolute(List<? extends PictogramElement> pes) {
 		int xMin = Integer.MAX_VALUE;
 		int yMin = Integer.MAX_VALUE;
 		int xMax = Integer.MIN_VALUE;
@@ -818,5 +853,5 @@ public class GraphicsUtil {
 			}
 		}
 		return new Rectangle(xMin, yMin, xMax-xMin, yMax-yMin);
-	}
+	}	
 }
