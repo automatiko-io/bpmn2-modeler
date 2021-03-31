@@ -3,6 +3,11 @@ local/
 sandbox/
 .git/
 
+# ignore eclipse project files 
+.settings/
+.project
+.classpath
+
 # Eclipse, Netbeans and IntelliJ files
 /.*
 !.gitignore
@@ -10,6 +15,8 @@ sandbox/
 /*.ipr
 /*.iws
 /*.iml
+
+
 
 # Repository wide ignore mac DS_Store files
 .DS_Store
