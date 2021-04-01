@@ -243,33 +243,43 @@ public class ResizeLaneFeature extends AbstractResizeContainerFeature {
 	 */
 	@Override
 	protected void preResizeShape(IResizeShapeContext context) {
+		int MIN_OFFSET=10;
 		super.preResizeShape(context);
+		// compute dimensions...
 		List<PictogramElement> children = FeatureSupport.getPoolOrLaneChildren((ContainerShape)context.getShape());
 		Rectangle bounds = GraphicsUtil.getBoundingRectangle(children);
+		Rectangle boundsAbsolute = GraphicsUtil.getBoundingRectangleAbsolute(children);
+		GraphicsAlgorithm rootGa = rootContainer.getGraphicsAlgorithm();
 		
-		// create an offset of 10px
-		if (bounds.x>10) {
-			bounds.x=bounds.x-10;
-		}
-		if (bounds.y>10) {
-			bounds.y=bounds.y-10;
-		}
-		bounds.width=bounds.width+20;
-		bounds.height=bounds.height+20;
+		// debug information
+		/*
+		System.out.println("root:     y="+rootGa.getY()  + " h="+rootGa.getHeight());
+		System.out.println("context:  y="+context.getY()  + " h="+context.getHeight());
+		System.out.println("bounds:   y=" + bounds.y +" h=" + bounds.width);
+		System.out.println("absolute: y=" + boundsAbsolute.y  + " h=" + boundsAbsolute.width);
+		*/
+	
 		
 		// check if the desired dimension is possible
 		if (bounds.x < context.getX()) {
+			// without offset
 			((ResizeShapeContext)context).setX(bounds.x);
 		}
-		if (bounds.y < context.getY()) {
-			// TODO this is not yet working correctly
-			((ResizeShapeContext)context).setY(bounds.y);
+		if (boundsAbsolute.y < (rootGa.getY()+context.getY()) ) {
+			// here we compare the absolute y position of the child elements 
+			// with the y position of the root container
+			if (boundsAbsolute.y-rootGa.getY()>MIN_OFFSET) {
+				((ResizeShapeContext)context).setY(boundsAbsolute.y-rootGa.getY()-MIN_OFFSET);
+			} else {
+				// without offset
+				((ResizeShapeContext)context).setY(boundsAbsolute.y-rootGa.getY());
+			}
 		}
 		if (bounds.x + bounds.width > context.getWidth()) {
-			((ResizeShapeContext)context).setWidth(bounds.x + bounds.width);
+			((ResizeShapeContext)context).setWidth(bounds.x + bounds.width+MIN_OFFSET);
 		}
 		if (bounds.y + bounds.height > context.getHeight()) {
-			((ResizeShapeContext)context).setHeight(bounds.y + bounds.height);
+			((ResizeShapeContext)context).setHeight(bounds.y + bounds.height+MIN_OFFSET);
 		}
 	}
 	

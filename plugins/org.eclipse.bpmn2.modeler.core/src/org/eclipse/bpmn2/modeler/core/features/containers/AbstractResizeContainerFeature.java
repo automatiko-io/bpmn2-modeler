@@ -72,16 +72,19 @@ public abstract class AbstractResizeContainerFeature extends DefaultResizeBPMNSh
 		containerPos.push(p);
 	}
 	
+	/**
+	 * Adjust location of children so that a resize up or left
+	 * leaves them in the same location relative to the diagram.
+	 * This allows the user to create (or remove) space between
+	 * the Lane's edge and the contained activities.
+	 */
 	@Override
 	protected void postResizeShape(IResizeShapeContext context) {
 		ContainerShape containerShape = (ContainerShape) context.getShape();
-
-		// Adjust location of children so that a resize up or left
-		// leaves them in the same location relative to the diagram.
-		// This allows the user to create (or remove) space between
-		// the Lane's edge and the contained activities.
+		
 		Point pos = containerPos.pop();
 		if (context.getDirection()==IResizeShapeContext.DIRECTION_NORTH ||
+				context.getDirection()==IResizeShapeContext.DIRECTION_SOUTH ||
 				context.getDirection()==IResizeShapeContext.DIRECTION_WEST ||
 				context.getDirection()==IResizeShapeContext.DIRECTION_NORTH_WEST ||
 				context.getDirection()==IResizeShapeContext.DIRECTION_NORTH_EAST ||
