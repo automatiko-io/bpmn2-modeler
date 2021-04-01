@@ -36,7 +36,7 @@ Require-Bundle: org.eclipse.emf.transaction,
  org.eclipse.core.expressions,
  org.eclipse.ui,
  org.eclipse.emf.ecore
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.bpmn2.modeler.core,
  org.eclipse.bpmn2.modeler.core.adapters,
