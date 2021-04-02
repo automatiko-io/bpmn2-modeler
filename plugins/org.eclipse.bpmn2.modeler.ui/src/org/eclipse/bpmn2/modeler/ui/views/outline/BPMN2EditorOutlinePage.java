@@ -37,11 +37,7 @@ import org.eclipse.graphiti.ui.editor.DiagramEditor;
 import org.eclipse.graphiti.ui.internal.fixed.FixedScrollableThumbnail;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.action.Separator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
@@ -49,12 +45,10 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IPropertyListener;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.about.AboutAction;
 import org.eclipse.ui.part.IPageSite;
 import org.eclipse.ui.part.PageBook;
 
@@ -209,20 +203,7 @@ public class BPMN2EditorOutlinePage extends ContentOutlinePage implements IPrope
 		});
 
 		// Add a context menu for editing actions
-		final MenuManager contextMenu = new MenuManager("#PopUp"); //$NON-NLS-1$
-		contextMenu.add(new Separator("additions")); //$NON-NLS-1$
-		contextMenu.setRemoveAllWhenShown(true);
-		contextMenu.addMenuListener(new IMenuListener() {
-
-			@Override
-			public void menuAboutToShow(IMenuManager manager) {
-				contextMenu.add(new AboutAction(diagramEditor.getSite().getWorkbenchWindow()));
-			}
-		});
-		
-		Menu menu = contextMenu.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(Activator.PLUGIN_ID+".outline", contextMenu, viewer); //$NON-NLS-1$
+		// not implemented !
 	}
 	
 	private void removeKeyListeners(Tree tree) {
