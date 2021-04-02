@@ -7,12 +7,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<version>1.5.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<!-- must build parent BEFORE building the rest of this project 
-	     	<module>parent</module> -->
-
 		<module>plugins</module>
 		<module>features</module>
 		<module>examples</module>
-		<module>tests</module>
 	</modules>
 </project>
