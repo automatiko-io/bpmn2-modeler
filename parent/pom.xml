@@ -29,266 +29,19 @@
 	</licenses>
 
 	<properties>
-		<!-- <tycho-version>1.1.0</tycho-version> -->
 		<tycho-version>1.3.0</tycho-version>
 		<tycho-extras-version>${tycho-version}</tycho-extras-version>
 		<BUILD_ALIAS>RC1</BUILD_ALIAS>
 		<BUILD_NUMBER>1</BUILD_NUMBER>
-		<eclipse.orbit.url>http://download.eclipse.org/tools/orbit/downloads/drops/repository</eclipse.orbit.url>
+		
+		<eclipse-site>http://download.eclipse.org/releases/2022-03</eclipse-site>
+		<platform-version>[4.8,5.2)</platform-version>
+		<platform-version-name>2022-06</platform-version-name>
+		<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/S20220517184036/repository</eclipse.orbit.url>
+		
 	</properties>
 
 	<profiles>
-		<profile>
-			<id>platform-helios</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>helios</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/helios</eclipse-site>
-				<platform-version>[3.6,3.7)</platform-version>
-				<platform-version-name>helios</platform-version-name>
-			</properties>
-		</profile>
-		<profile>
-			<id>platform-indigo</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>indigo</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/indigo</eclipse-site>
-				<platform-version>[3.7,3.8)</platform-version>
-				<platform-version-name>indigo</platform-version-name>
-			</properties>
-		</profile>
-		<profile>
-			<id>platform-juno</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>juno</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/juno</eclipse-site>
-				<platform-version>[4.2,4.3)</platform-version>
-				<platform-version-name>juno</platform-version-name>
-			</properties>
-		</profile>
-		<profile>
-			<id>platform-kepler</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>kepler</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/kepler</eclipse-site>
-				<platform-version>[4.3,4.4)</platform-version>
-				<platform-version-name>kepler</platform-version-name>
-			</properties>
-		</profile>
-		<profile>
-			<id>platform-luna</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>luna</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/luna</eclipse-site>
-				<platform-version>[4.4,4.5)</platform-version>
-				<platform-version-name>luna</platform-version-name>
-			</properties>
-		</profile>
-		<profile>
-			<id>platform-mars</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>mars</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/mars</eclipse-site>
-				<platform-version>[4.5,5.0)</platform-version>
-				<platform-version-name>mars</platform-version-name>
-			</properties>
-		</profile>
-		<profile>
-			<id>platform-neon</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>neon</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/neon</eclipse-site>
-				<platform-version>[4.6,5.0)</platform-version>
-				<platform-version-name>neon</platform-version-name>
-				<eclipse.orbit.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository</eclipse.orbit.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>platform-oxygen</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>oxygen</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/oxygen</eclipse-site>
-				<platform-version>[4.7,5.0)</platform-version>
-				<platform-version-name>oxygen</platform-version-name>
-				<eclipse.orbit.url>http://download.eclipse.org/tools/orbit/S-builds/S20170516192513/repository</eclipse.orbit.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>platform-photon</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>photon</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/photon</eclipse-site>
-				<platform-version>[4.8,5.0)</platform-version>
-				<platform-version-name>photon</platform-version-name>
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20190219190953/repository</eclipse.orbit.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>platform-2019-06</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>2019-06</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/2019-06</eclipse-site>
-				<platform-version>[4.8,5.2)</platform-version>
-				<platform-version-name>2019-06</platform-version-name>
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20200128200239/repository</eclipse.orbit.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>platform-2020-06</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>2020-06</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/2020-06</eclipse-site>
-				<platform-version>[4.8,5.2)</platform-version>
-				<platform-version-name>2020-06</platform-version-name>
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20200526004052/repository</eclipse.orbit.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
-			<id>platform-2020-09</id>
-			<activation>
-				<property>
-					<name>platform-version-name</name>
-					<value>2020-09</value>
-				</property>
-			</activation>
-			<properties>
-				<eclipse-site>http://download.eclipse.org/releases/2020-09</eclipse-site>
-				<platform-version>[4.8,5.2)</platform-version>
-				<platform-version-name>2020-09</platform-version-name>
-				<!-- 
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20200727174946/repository</eclipse.orbit.url>
-				 -->
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/R20200831200620/repository</eclipse.orbit.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
 		<profile>
 			<id>platform-2021-06</id>
 			<activation>
@@ -306,18 +59,7 @@
 				 -->
 				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20210406213021/repository</eclipse.orbit.url>				
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
+			
 		</profile>
 		
 		<profile>
@@ -339,18 +81,7 @@
 				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20210406213021/repository</eclipse.orbit.url>
 				 -->				
 			</properties>
-			<build>
-				<plugins>
-					<plugin>
-					    <groupId>org.eclipse.tycho</groupId>
-					    <artifactId>tycho-surefire-plugin</artifactId>
-					    <version>${tycho-version}</version>
-						<configuration>
-							<useUIThread>false</useUIThread>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
+			
 		</profile>		
 				
 		<profile>
@@ -541,11 +272,18 @@
 				<artifactId>tycho-packaging-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-                                   <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
-                                   <archiveSite>true</archiveSite>
+                	<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
+                    <archiveSite>true</archiveSite>
 				</configuration>
 			</plugin>
-			
+			<plugin>
+			    <groupId>org.eclipse.tycho</groupId>
+			    <artifactId>tycho-surefire-plugin</artifactId>
+			    <version>${tycho-version}</version>
+				<configuration>
+					<useUIThread>false</useUIThread>
+				</configuration>
+			</plugin>			
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-source-feature-plugin</artifactId>
