@@ -4,7 +4,7 @@
  * This program is made available under the terms of the
  * Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Red Hat, Inc. - initial API and implementation
  ******************************************************************************/
@@ -18,4 +18,5 @@ public interface IHelpContexts {
 	public static String TOC = "org.eclipse.bpmn2.modeler.help.TOC"; //$NON-NLS-1$
 	public static String New_File_Wizard = "org.eclipse.bpmn2.modeler.help.New_File_Wizard"; //$NON-NLS-1$
 	public static String JBPM_New_File_Wizard = "org.eclipse.bpmn2.modeler.help.JBPM_New_File_Wizard"; //$NON-NLS-1$
+	public static String Automatiko_New_File_Wizard = "org.eclipse.bpmn2.modeler.help.Automatiko_New_File_Wizard"; //$NON-NLS-1$
 }

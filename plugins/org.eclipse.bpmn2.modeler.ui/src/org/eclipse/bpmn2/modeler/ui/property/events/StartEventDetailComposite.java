@@ -41,6 +41,9 @@ public class StartEventDetailComposite extends DefaultDetailComposite {
 				String[] properties = new String[] {
 						"isInterrupting", //$NON-NLS-1$
 						"eventDefinitions", //$NON-NLS-1$
+						"dataOutputAssociations",
+ 						"dataOutputs",
+ 						"ioSpecification"
 				};
 				
 				@Override
