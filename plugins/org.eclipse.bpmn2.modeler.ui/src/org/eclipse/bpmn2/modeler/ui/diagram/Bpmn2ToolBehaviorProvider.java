@@ -105,6 +105,7 @@ import org.eclipse.graphiti.tb.IDecorator;
 import org.eclipse.graphiti.tb.IImageDecorator;
 import org.eclipse.graphiti.tb.ImageDecorator;
 import org.eclipse.graphiti.ui.editor.DiagramBehavior;
+import org.eclipse.graphiti.ui.services.GraphitiUi;
 import org.eclipse.graphiti.util.ILocationInfo;
 import org.eclipse.graphiti.util.LocationInfo;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -688,7 +689,7 @@ public class Bpmn2ToolBehaviorProvider extends DefaultToolBehaviorProvider imple
 				data.getDomainSpecificContextButtons().add(button);
 			}
 		}
-
+		
 		// 3. add one domain specific context-button, which offers all
 		// available connection-features as drag&drop features...
 

@@ -219,28 +219,28 @@ public class BPMN2ProjectValidator extends AbstractValidator {
 					}
 					
 					// The WST Validation Builder is required to do BPMN2 model validation
-					boolean hasWSTBuilder = BPMN2Nature.hasBuilder(project, BPMN2Nature.WST_VALIDATION_BUILDER_ID);
-					if (!hasWSTBuilder) {
-//						if (preferences.getCheckProjectNature()) 
-						{
-							Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-							String title = Messages.BPMN2ProjectValidator_Title;
-							String message = NLS.bind(
-								Messages.BPMN2ProjectValidator_No_WST_Project_Builder,
-								project.getName()
-							);
-							boolean result = MessageDialog.open(
-									MessageDialog.QUESTION,
-									shell,
-									title,
-									message,
-									SWT.NONE);
-							if (result) {
-								BPMN2Nature.setBPMN2Nature(project, true);
-								needValidation = true;
-							}
-						}
-					}
+//					boolean hasWSTBuilder = BPMN2Nature.hasBuilder(project, BPMN2Nature.WST_VALIDATION_BUILDER_ID);
+//					if (!hasWSTBuilder) {
+////						if (preferences.getCheckProjectNature()) 
+//						{
+//							Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+//							String title = Messages.BPMN2ProjectValidator_Title;
+//							String message = NLS.bind(
+//								Messages.BPMN2ProjectValidator_No_WST_Project_Builder,
+//								project.getName()
+//							);
+//							boolean result = MessageDialog.open(
+//									MessageDialog.QUESTION,
+//									shell,
+//									title,
+//									message,
+//									SWT.NONE);
+//							if (result) {
+//								BPMN2Nature.setBPMN2Nature(project, true);
+//								needValidation = true;
+//							}
+//						}
+//					}
 	
 				} catch (CoreException e) {
 					e.printStackTrace();

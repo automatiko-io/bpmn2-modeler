@@ -45,5 +45,7 @@ public class CatchEventDetailComposite extends AbstractDetailComposite {
 		bindAttribute(be,"parallelMultiple"); //$NON-NLS-1$
 		bindList(be,"eventDefinitions"); //$NON-NLS-1$
 		bindList(be,"dataOutputs"); //$NON-NLS-1$
+		bindList(be,"dataOutputAssociations"); //$NON-NLS-1$
+ 		bindList(be,"ioSpecification"); //$NON-NLS-1$
 	}
 }

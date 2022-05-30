@@ -794,7 +794,7 @@ public class DefaultSchemaImportDialog extends SelectionStatusDialog {
 	
 	protected void markEmptySelection () {
 		updateStatus ( Status.OK_STATUS );
-		updateOK(false);
+		updateOK(true);
 		fTreeViewer.setInput(null);
 	}
 	
@@ -856,7 +856,9 @@ public class DefaultSchemaImportDialog extends SelectionStatusDialog {
 					setSelectionResult(new Object[] { treeNode.getModelObject() });
 				else
 					setSelectionResult(null);
-			}
+			} else {
+ 				setSelectionResult(new Object[] { fLocationText });
+ 			}
 		}
 		else {
 			setSelectionResult(new Object[] { object });
@@ -1013,6 +1015,8 @@ public class DefaultSchemaImportDialog extends SelectionStatusDialog {
 				"*.java", //$NON-NLS-1$
 				"*.class", //$NON-NLS-1$
 				"*.jar", //$NON-NLS-1$
+				"*.json", //$NON-NLS-1$
+ 				"*.yaml", //$NON-NLS-1$
 				"*.*" //$NON-NLS-1$
 		};
 		FILTER_EXTENSIONS = java_FILTER_EXTENSIONS;
@@ -1026,7 +1030,7 @@ public class DefaultSchemaImportDialog extends SelectionStatusDialog {
 		FILTER_NAMES = wsdl_FILTER_NAMES;
 
 		// Resource selection widget not used (yet)
-		resourceFilter = ".java"; //$NON-NLS-1$
+		resourceFilter = ".json"; //$NON-NLS-1$
 		if (fResourceComposite!=null)
 			fResourceComposite.setFileFilter(resourceFilter);
 	}
