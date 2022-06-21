@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.bpmn2.modeler.runtime.automatiko"
       label="BPMN2 Modeler - Automatiko Runtime Extension Feature"
-      version="1.5.4.qualifier"
+      version="2.1.0"
       provider-name="%providerName">
 
    <description url="https://automatiko.io/">
