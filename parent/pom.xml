@@ -34,12 +34,10 @@
 		<tycho-extras-version>${tycho-version}</tycho-extras-version>
 		<BUILD_ALIAS>RC1</BUILD_ALIAS>
 		<BUILD_NUMBER>1</BUILD_NUMBER>
-		
 		<eclipse-site>https://download.eclipse.org/releases/2022-03</eclipse-site>
 		<platform-version>[4.8,5.2)</platform-version>
-		<platform-version-name>2022-06</platform-version-name>
-		<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/S20220517184036/repository</eclipse.orbit.url>
-		
+		<platform-version-name>2022-12</platform-version-name>
+		<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/S20221109014815/repository</eclipse.orbit.url>
 	</properties>
 
 	<profiles>
@@ -78,14 +76,27 @@
 				<platform-version-name>2022-06</platform-version-name>
 				<!-- I20220401155710  S20220517184036 -->
 				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/S20220517184036/repository</eclipse.orbit.url>
-				 
-				 <!-- 
-				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/S-builds/S20210406213021/repository</eclipse.orbit.url>
-				 -->				
 			</properties>
 			
 		</profile>		
-				
+
+		<profile>
+			<id>platform-2022-12</id>
+			<activation>
+				<property>
+					<name>platform-version-name</name>
+					<value>2022-12</value>
+				</property>
+			</activation>
+			<properties>
+				<eclipse-site>https://download.eclipse.org/releases/2022-12</eclipse-site>
+				<platform-version>[4.8,5.2)</platform-version>
+				<platform-version-name>2022-12</platform-version-name>
+				<eclipse.orbit.url>https://download.eclipse.org/tools/orbit/downloads/drops/S20221109014815/repository</eclipse.orbit.url>				
+			</properties>
+			
+		</profile>	
+						
 		<profile>
 			<id>sign</id>
 			<build>
