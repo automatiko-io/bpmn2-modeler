@@ -193,7 +193,8 @@
 
 		<repository>
 			<id>eclipse-graphiti</id>
-			<url>https://download.eclipse.org/graphiti/updates/milestones/S-0.19.0M3-202205200756</url>
+			<!-- <url>https://download.eclipse.org/graphiti/updates/milestones/S-0.19.0M3-202205200756</url>  -->
+			<url>https://download.eclipse.org/graphiti/updates/milestones/</url>
 			<layout>p2</layout>
 			<snapshots>
 				<enabled>true</enabled>
