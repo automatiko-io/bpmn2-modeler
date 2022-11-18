@@ -372,7 +372,6 @@ public class SchemaSelectionDialog extends SelectionStatusDialog {
 		return null;
 	}
 
-	@SuppressWarnings("boxing")
 	void loadDone() {
 
 		if (input == null || input instanceof Exception) {

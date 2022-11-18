@@ -130,7 +130,7 @@ public class NameAndURIObjectEditor extends ComboObjectEditor {
 		if ( dialog.open() == Window.OK) {
 			final String newURI = dialog.getURI();
 			final String newName = dialog.getName();
-			if (!newURI.equals(value)) {
+			if (!newURI.equals(oldURI)) {
 				final Definitions definitions = ModelUtil.getDefinitions(object);
 				if (definitions!=null) {
 					TransactionalEditingDomain domain = getDiagramEditor().getEditingDomain();

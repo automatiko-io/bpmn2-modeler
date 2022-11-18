@@ -728,9 +728,7 @@ public class DefaultSchemaImportDialog extends SelectionStatusDialog {
 		updateStatus ( new Status(IStatus.INFO, Activator.getDefault().getID(),0,msg,null));
 	}
 
-	
-	 
-	@SuppressWarnings("boxing")
+
 	protected void loadDone () {
 		
 		long elapsed = System.currentTimeMillis() - fRunnableStart;
