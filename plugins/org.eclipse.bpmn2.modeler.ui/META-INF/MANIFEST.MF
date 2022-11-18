@@ -77,4 +77,5 @@ Import-Package: org.eclipse.core.expressions,
  org.eclipse.emf.workspace,
  org.eclipse.emf.workspace.util,
  org.eclipse.wst.validation
+Automatic-Module-Name: org.eclipse.bpmn2.modeler.ui
 

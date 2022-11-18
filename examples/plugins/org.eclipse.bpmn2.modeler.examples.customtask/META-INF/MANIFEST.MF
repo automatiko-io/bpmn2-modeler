@@ -32,3 +32,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.jdt.core
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipse.bpmn2.modeler.examples.customtask

@@ -21,7 +21,7 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.VerifyEvent;
@@ -78,10 +78,10 @@ public class FloatObjectEditor extends TextObjectEditor {
 
 		updateText();
 
-		IObservableValue textObserveTextObserveWidget = SWTObservables.observeText(text, SWT.Modify);
-		textObserveTextObserveWidget.addValueChangeListener(new IValueChangeListener() {
+		IObservableValue<String> textObserveTextObserveWidget = WidgetProperties.text(SWT.Modify).observe((Control) text);
+		textObserveTextObserveWidget.addValueChangeListener(new IValueChangeListener<String>() {
 			@Override
-			public void handleValueChange(ValueChangeEvent event) {
+			public void handleValueChange(ValueChangeEvent<? extends String> event) {
 
 				try {
 					final Double i = Double.parseDouble(text.getText());
@@ -92,7 +92,6 @@ public class FloatObjectEditor extends TextObjectEditor {
 				}
 			}
 
-			@SuppressWarnings("rawtypes")
 			private void setFeatureValue(final double i) {
 				getBusinessObjectDelegate().setValue(object, feature, Double.toString(i));
 			}
@@ -120,6 +119,6 @@ public class FloatObjectEditor extends TextObjectEditor {
 				catch (Exception e){
 				}
 			}
-			return new Double(0);
+			return Double.valueOf(0);
 		}
 }
